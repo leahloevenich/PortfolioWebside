@@ -1,0 +1,416 @@
+/* Standard-Abstände vom Browser entfernen */
+* {
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+:root {
+    --primary-color: #2563eb;
+    /* Brand / Main action color (e.g. Buttons, Active states) */
+    --primary-hover: #1d4ed8;
+    /* Hover state for primary buttons */
+    --secondary-color: #64748b;
+    /* Accents / Secondary actions */
+
+    /* purple */
+    --box-purple-top-bd: #885A89;
+    --box-purple-top-bg: #CEB5CF;
+    --box-purple-bottom-bd: #CEB5CF;
+    --box-purple-bottom-bg: #EFE6EF;
+
+    /* pink */
+    --box-pink-top-bd: #B04568;
+    --box-pink-top-bg: #D189A1;
+    --box-pink-bottom-bd: #D189A1;
+    --box-pink-bottom-bg: #F4E2E8;
+
+    /* green */
+    --box-green-top-bd: #50A573;
+    --box-green-top-bg: #9FD1B3;
+    --box-green-bottom-bd: #9FD1B3;
+    --box-green-bottom-bg: #E3F2E9;
+
+    /* orange */
+    --box-orange-top-bd: #F28C18;
+    --box-orange-top-bg: #F8C58B;
+    --box-orange-bottom-bd: #F8C58B;
+    --box-orange-bottom-bg: #FDECD8;
+
+    /* brown */
+    --box-brown-top-bd: #957C75;
+    --box-brown-top-bg: #C1B2AE;
+    --box-brown-bottom-bd: #C1B2AE;
+    --box-brown-bottom-bg: #EDE9E8;
+
+    /* blue */
+    --box-blue-top-bd: #3B90BA;
+    --box-blue-top-bg: #92C4DD;
+    --box-blue-bottom-bd: #92C4DD;
+    --box-blue-bottom-bg: #E0EEF5;
+
+
+    --text-primary: white;
+    /* High-contrast main body text */
+    --text-muted: grey;
+    /* Subtitles, secondary text */
+
+    --border-color: #e2e8f0;
+}
+
+html,
+body {
+    margin: 0;
+    height: 100%;
+}
+
+.heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: American Typewriter, serif;
+    color: white;
+    font-size: 40px;
+}
+
+.whole-grid {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 24px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
+
+    .card {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .title {
+            width: 100%;
+            height: 50px;
+            font-size: x-large;
+            margin: 0;
+            padding: 4px;
+
+            display: flex;
+                align-items: center;
+
+            background: grey;
+            border: 3px solid black;
+            border-radius: 16px 16px 0 0; /* oben, links, rechts, unten */
+
+            text-transform: uppercase;
+
+            img {
+                height: 40px;
+                width: auto;
+                margin-right: 0.4em;
+            }
+        }
+
+        .data {
+            height: 100%;
+            width: 100%;
+            background: lightgray;
+            border: 3px solid grey;
+            border-top: none;
+            border-radius: 0 0 16px 16px;
+
+            font-size: large;
+            padding: 20px 20px;
+        }
+    }
+
+    .card:nth-child(1) {
+        .title {
+            border-color: var(--box-purple-top-bd);
+            background-color: var(--box-purple-top-bg);
+        }
+        .data {
+            border-color: var(--box-purple-bottom-bd);
+            background-color: var(--box-purple-bottom-bg);
+        }
+    }
+
+    .card:nth-child(2) {    /* title box should be larger */
+        grid-column: span 2;
+        .title {
+            border-color: transparent;
+            background-color: transparent;
+        }
+        .data {
+            border-color: transparent;
+            background-color: transparent;
+        }
+
+        .ws-heading {
+            font-size: xx-large;
+        }
+
+        .banner {
+            font-family: monospace;
+            font-size: 60px;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid black;
+            display: inline-block;
+            /* Required for width animation */
+            margin: 0;
+    
+            animation:
+                typing 2s steps(19, end) forwards,
+                blinking 0.75s step-end infinite;
+        }
+    
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+    
+            to {
+                width: 19ch;
+            }
+        }
+    
+        @keyframes blinking {
+            from,
+            to {
+                border-color: transparent;
+            }
+    
+            50% {
+                border-color: black;
+            } 
+        }
+    }
+
+    .card:nth-child(3) {
+        .title {
+            border-color: var(--box-green-top-bd);
+            background-color: var(--box-green-top-bg);
+        }
+
+        .data {
+            border-color: var(--box-green-bottom-bd);
+            background-color: var(--box-green-bottom-bg);
+        }
+    }
+
+    .card:nth-child(4) {
+        .title {
+            border-color: var(--box-purple-top-bd);
+            background-color: var(--box-purple-top-bg);
+        }
+
+        .data {
+            border-color: var(--box-purple-bottom-bd);
+            background-color: var(--box-purple-bottom-bg);
+        }
+    }
+
+    .card:nth-child(5) {
+        .title {
+            border-color: var(--box-orange-top-bd);
+            background-color: var(--box-orange-top-bg);
+        }
+
+        .data {
+            border-color: var(--box-orange-bottom-bd);
+            background-color: var(--box-orange-bottom-bg);
+        }
+    }
+
+    .card:nth-child(6) {
+        .title {
+            border-color: var(--box-brown-top-bd);
+            background-color: var(--box-brown-top-bg);
+        }
+
+        .data {
+            border-color: var(--box-brown-bottom-bd);
+            background-color: var(--box-brown-bottom-bg);
+        }
+    }
+
+    .card:nth-child(7) {
+        .title {
+            border-color: var(--box-blue-top-bd);
+            background-color: var(--box-blue-top-bg);
+        }
+
+        .data {
+            border-color: var(--box-blue-bottom-bd);
+            background-color: var(--box-blue-bottom-bg);
+        }
+    }
+}
+
+
+
+
+
+/* 2. SEKTIONEN: Jede Sektion nimmt den ganzen Bildschirm ein */
+.section {
+    width: 100%;
+    height: 100vh;
+    scroll-snap-align: start;
+    /* Am oberen Rand einrasten */
+
+    /* Inhalt in der Mitte der Sektion zentrieren */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    color: white;
+    /* schriftfarbe */
+
+    gap: 30px;
+}
+
+.section>* {
+    width: 90%;
+    /* Leaves 5% space on the left and right sides */
+    max-width: 1200px;
+    /* Optional cap so it doesn't get too wide on huge screens */
+    margin-top: 20px;
+    /* Optional top spacing */
+}
+
+.main-image {
+    height: 50%;
+    width: auto;
+    flex-shrink: 0;
+    border: 3px solid white;
+    border-radius: 100px;
+}
+
+.sec-1 {
+    background-color: var(--bg-1);
+    text-align: top;
+}
+
+.typing-border {
+    border: 3px solid white;
+    border-radius: 50px;
+    background-color: var(--bg-sidebar);
+    width: 92%;
+    display: flex;
+    justify-content: center;
+    /* Horizontally centers the typing box */
+    align-items: center;
+    /* Vertically centers the typing text */
+}
+
+.typing-text {
+    font-family: monospace;
+    font-size: 60px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid white;
+    display: inline-block;
+    /* Required for width animation */
+
+    margin: 0;
+
+    animation:
+        typing 2s steps(29, end) forwards,
+        blinking 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 29ch;
+    }
+}
+
+@keyframes blinking {
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: white;
+    }
+}
+
+.sec-2 {
+    background-color: var(--bg-2);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 equal columns */
+    grid-template-rows: repeat(2, 1fr);
+    /* 2 equal rows */
+    gap: 20px;
+    /* Space between items */
+
+    width: 90%;
+    height: 80%;
+    /* Fills available vertical height */
+}
+
+/* Base styling for the 6 inner boxes */
+.skill-card {
+    background-color: var(--bg-sidebar, #2a2a2a);
+    border: 3px solid white;
+    border-radius: 12px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 20px;
+
+
+    /* Center content inside each card */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.skill-card h1 {
+    font-family: American Typewriter, serif;
+    color: white;
+    font-size: larger;
+    align-items: flex-start;
+}
+
+.skill-item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.align-left {
+    font-family: monospace;
+}
+
+.checked {
+    color: orange;
+}
+
+.sec-3 {
+    background-color: var(--bg-3);
+}
+
+
+
+.sec-4 {
+    background-color: var(--bg-4);
+}
+
+.describtion {
+    font-family: American Typewriter, serif;
+    color: white;
+    font-size: medium;
+}
