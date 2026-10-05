@@ -59,7 +59,6 @@
 html,
 body {
     margin: 0;
-    height: 100%;
 }
 
 body {
@@ -69,6 +68,9 @@ body {
     font-family: "VT323", monospace;
     font-weight: 400;
     font-style: normal;
+    box-sizing: border-box;
+
+    padding: 50px 0px;
 
     background-image: url(https://media.istockphoto.com/id/2165336487/vector/pixel-star-retro-8-bit-sparkle-set-shiny-game-pixel-art-effect-set-firework-burst-space.jpg?s=612x612&w=0&k=20&c=qiZ4TuPAQvpByNLb9BI5eT2H42gHm2drxTEGQdKYJD8=);
 }
@@ -84,12 +86,16 @@ body {
 
 .whole-grid {
     box-sizing: border-box;
-    height: 100%;
-    padding: 24px;
+    min-height: 100%;
+    padding: 0px 24px 34px 24px;
 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+
+    background-color: #F5F5DC;
+    border: 7px solid #EF5B5B;
+    border-radius: 40px 40px 40px 40px;
 
     .card {
         padding: 0;
@@ -121,7 +127,7 @@ body {
         }
 
         .data {
-            height: 100%;
+            flex: 1;
             width: 100%;
             background: lightgray;
             border: 3px solid grey;
@@ -134,7 +140,6 @@ body {
     }
 
     .card:nth-child(1) {
-        /* title box should be larger */
         grid-column: span 2;
 
         .title {
@@ -145,46 +150,45 @@ body {
         .data {
             border-color: transparent;
             background-color: transparent;
-        }
 
-        .ws-heading {
-            font-size: xx-large;
-        }
-
-        .banner {
-            font-family: monospace;
-            font-size: 60px;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 2px solid black;
-            display: inline-block;
-            /* Required for width animation */
-            margin: 0;
-
-            animation:
-                typing 2s steps(19, end) forwards,
-                blinking 0.75s step-end infinite;
-        }
-
-        @keyframes typing {
-            from {
-                width: 0;
+            .ws-heading {
+                font-size: xx-large;
             }
-
-            to {
-                width: 19ch;
+        
+            .banner {
+                font-family: monospace;
+                font-size: 60px;
+                white-space: nowrap;
+                overflow: hidden;
+                border-right: 2px solid black;
+                display: inline-block;
+                /* Required for width animation */
+                margin: 0;
+        
+                animation:
+                    typing 2s steps(19, end) forwards,
+                    blinking 0.75s step-end infinite;
             }
-        }
-
-        @keyframes blinking {
-
-            from,
-            to {
-                border-color: transparent;
+        
+            @keyframes typing {
+                from {
+                    width: 0;
+                }
+        
+                to {
+                    width: 19ch;
+                }
             }
-
-            50% {
-                border-color: black;
+        
+            @keyframes blinking {
+                from,
+                to {
+                    border-color: transparent;
+                }
+        
+                50% {
+                    border-color: black;
+                }
             }
         }
     }
@@ -320,6 +324,18 @@ body {
             li.punkt-leetcode {
                 background-image: url('images/leetcode.png');
             }
+        }
+    }
+
+    .card:nth-child(7) {
+        .title {
+            border-color: var(--box-blue-top-bd);
+            background-color: var(--box-blue-top-bg);
+        }
+
+        .data {
+            border-color: var(--box-blue-bottom-bd);
+            background-color: var(--box-blue-bottom-bg);
         }
     }
 }
