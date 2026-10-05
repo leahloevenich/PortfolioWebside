@@ -1,7 +1,6 @@
 /* Standard-Abstände vom Browser entfernen */
 * {
     box-sizing: border-box;
-    font-family: monospace;
 }
 
 :root {
@@ -63,6 +62,17 @@ body {
     height: 100%;
 }
 
+body {
+    margin: 0 auto;
+    max-width: 1000px;
+    height: 100%;
+    font-family: "VT323", monospace;
+    font-weight: 400;
+    font-style: normal;
+
+    background-image: url(https://media.istockphoto.com/id/2165336487/vector/pixel-star-retro-8-bit-sparkle-set-shiny-game-pixel-art-effect-set-firework-burst-space.jpg?s=612x612&w=0&k=20&c=qiZ4TuPAQvpByNLb9BI5eT2H42gHm2drxTEGQdKYJD8=);
+}
+
 .heading {
     display: flex;
     justify-content: center;
@@ -78,8 +88,7 @@ body {
     padding: 24px;
 
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 
     .card {
@@ -105,7 +114,7 @@ body {
             text-transform: uppercase;
 
             img {
-                height: 40px;
+                max-height: 100%;
                 width: auto;
                 margin-right: 0.4em;
             }
@@ -125,22 +134,14 @@ body {
     }
 
     .card:nth-child(1) {
-        .title {
-            border-color: var(--box-purple-top-bd);
-            background-color: var(--box-purple-top-bg);
-        }
-        .data {
-            border-color: var(--box-purple-bottom-bd);
-            background-color: var(--box-purple-bottom-bg);
-        }
-    }
-
-    .card:nth-child(2) {    /* title box should be larger */
+        /* title box should be larger */
         grid-column: span 2;
+
         .title {
             border-color: transparent;
             background-color: transparent;
         }
+
         .data {
             border-color: transparent;
             background-color: transparent;
@@ -159,31 +160,83 @@ body {
             display: inline-block;
             /* Required for width animation */
             margin: 0;
-    
+
             animation:
                 typing 2s steps(19, end) forwards,
                 blinking 0.75s step-end infinite;
         }
-    
+
         @keyframes typing {
             from {
                 width: 0;
             }
-    
+
             to {
                 width: 19ch;
             }
         }
-    
+
         @keyframes blinking {
+
             from,
             to {
                 border-color: transparent;
             }
-    
+
             50% {
                 border-color: black;
-            } 
+            }
+        }
+    }
+
+    .card:nth-child(2) {
+        .title {
+            border-color: var(--box-purple-top-bd);
+            background-color: var(--box-purple-top-bg);
+        }
+        .data {
+            border-color: var(--box-purple-bottom-bd);
+            background-color: var(--box-purple-bottom-bg);
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            li {
+                list-style: none;
+                /* Schaltet die Standard-Punkte aus */
+                padding-left: 30px;
+                /* Schafft Platz links für das Icon */
+                background-repeat: no-repeat;
+                /* Verhindert, dass das Bild sich wiederholt */
+                background-position: left center;
+                /* Richtet das Icon vertikal mittig aus */
+
+                /* Hier steuern Sie die Größe aller Icons (Breite und Höhe) */
+                background-size: 20px 20px;
+
+                /* Sorgt dafür, dass der Text sauber neben dem Icon steht */
+                min-height: 20px;
+                display: flex;
+                align-items: center;
+            }
+
+            li.punkt-email {
+                background-image: url('images/mail.png');
+            }
+
+            li.punkt-phonenumber {
+                background-image: url('images/phonenumber.png');
+            }
+
+            li.punkt-github {
+                background-image: url('images/git.png');
+            }
+
+            li.punkt-leetcode {
+                background-image: url('images/leetcode.png');
+            }
         }
     }
 
@@ -201,18 +254,6 @@ body {
 
     .card:nth-child(4) {
         .title {
-            border-color: var(--box-purple-top-bd);
-            background-color: var(--box-purple-top-bg);
-        }
-
-        .data {
-            border-color: var(--box-purple-bottom-bd);
-            background-color: var(--box-purple-bottom-bg);
-        }
-    }
-
-    .card:nth-child(5) {
-        .title {
             border-color: var(--box-orange-top-bd);
             background-color: var(--box-orange-top-bg);
         }
@@ -223,7 +264,7 @@ body {
         }
     }
 
-    .card:nth-child(6) {
+    .card:nth-child(5) {
         .title {
             border-color: var(--box-brown-top-bd);
             background-color: var(--box-brown-top-bg);
@@ -235,7 +276,7 @@ body {
         }
     }
 
-    .card:nth-child(7) {
+    .card:nth-child(6) {
         .title {
             border-color: var(--box-blue-top-bd);
             background-color: var(--box-blue-top-bg);
@@ -244,6 +285,41 @@ body {
         .data {
             border-color: var(--box-blue-bottom-bd);
             background-color: var(--box-blue-bottom-bg);
+
+            li {
+                list-style: none;
+                /* Schaltet die Standard-Punkte aus */
+                padding-left: 30px;
+                /* Schafft Platz links für das Icon */
+                background-repeat: no-repeat;
+                /* Verhindert, dass das Bild sich wiederholt */
+                background-position: left center;
+                /* Richtet das Icon vertikal mittig aus */
+        
+                /* Hier steuern Sie die Größe aller Icons (Breite und Höhe) */
+                background-size: 20px 20px;
+        
+                /* Sorgt dafür, dass der Text sauber neben dem Icon steht */
+                min-height: 20px;
+                display: flex;
+                align-items: center;
+            }
+        
+            li.punkt-email {
+                background-image: url('images/mail.png');
+            }
+        
+            li.punkt-phonenumber {
+                background-image: url('images/phonenumber.png');
+            }
+        
+            li.punkt-github {
+                background-image: url('images/git.png');
+            }
+        
+            li.punkt-leetcode {
+                background-image: url('images/leetcode.png');
+            }
         }
     }
 }
