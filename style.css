@@ -72,16 +72,64 @@ body {
 
     padding: 50px 0px;
 
-    background-image: url(https://media.istockphoto.com/id/2165336487/vector/pixel-star-retro-8-bit-sparkle-set-shiny-game-pixel-art-effect-set-firework-burst-space.jpg?s=612x612&w=0&k=20&c=qiZ4TuPAQvpByNLb9BI5eT2H42gHm2drxTEGQdKYJD8=);
+    background-image: url('images/bg2.png');
+    background-size: auto;
+    background-repeat: repeat;
+    cursor: url('images/star.png'), pointer;
+}
+
+.whole-box {
+    background-color: #F5F5DC;
+    border: 7px solid grey;
+    border-radius: 40px 40px 40px 40px;
 }
 
 .heading {
+    width: 100%;
+    height: 200px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: American Typewriter, serif;
-    color: white;
-    font-size: 40px;
+        flex-direction: column;
+        justify-content: center;
+        /* vertikal (Hauptachse = Spalte) */
+        align-items: center;
+        /* horizontal */
+        gap: 30px;
+
+    .ws-heading {
+        font-size: xx-large;
+    }
+
+    .banner {
+        width: min-content;
+        font-family: 'Press Start 2P', cursive;
+        font-size: 40px;
+        text-shadow: 3px 3px 0px #ffcc00;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 2px solid black;
+        display: inline-block;
+        margin: 0;
+
+        animation:
+            typing 2s steps(19, end) forwards,
+            blinking 1s steps(1, end) infinite;
+    }
+}
+
+@keyframes blinking {
+    50% {
+        border-right-color: transparent;
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 19ch;
+    }
 }
 
 .whole-grid {
@@ -93,15 +141,15 @@ body {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 
-    background-color: #F5F5DC;
-    border: 7px solid #EF5B5B;
-    border-radius: 40px 40px 40px 40px;
-
     .card {
         padding: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
+        min-height: 300px;
+        max-height: 500px;;
+        overflow: hidden;
+        box-shadow: 6px 6px 0px #333333;
 
         .title {
             width: 100%;
@@ -115,12 +163,12 @@ body {
 
             background: grey;
             border: 3px solid black;
-            border-radius: 16px 16px 0 0; /* oben, links, rechts, unten */
+            /*border-radius: 16px 16px 0 0; /* oben, links, rechts, unten */
 
             text-transform: uppercase;
 
             img {
-                max-height: 100%;
+                height: 100%;
                 width: auto;
                 margin-right: 0.4em;
             }
@@ -128,72 +176,19 @@ body {
 
         .data {
             flex: 1;
+            min-height: 0;
             width: 100%;
             background: lightgray;
             border: 3px solid grey;
             border-top: none;
-            border-radius: 0 0 16px 16px;
+            /*border-radius: 0 0 16px 16px;*/
 
             font-size: large;
-            padding: 20px 20px;
+            padding: 10px 10px;
         }
     }
 
     .card:nth-child(1) {
-        grid-column: span 2;
-
-        .title {
-            border-color: transparent;
-            background-color: transparent;
-        }
-
-        .data {
-            border-color: transparent;
-            background-color: transparent;
-
-            .ws-heading {
-                font-size: xx-large;
-            }
-        
-            .banner {
-                font-family: monospace;
-                font-size: 60px;
-                white-space: nowrap;
-                overflow: hidden;
-                border-right: 2px solid black;
-                display: inline-block;
-                /* Required for width animation */
-                margin: 0;
-        
-                animation:
-                    typing 2s steps(19, end) forwards,
-                    blinking 0.75s step-end infinite;
-            }
-        
-            @keyframes typing {
-                from {
-                    width: 0;
-                }
-        
-                to {
-                    width: 19ch;
-                }
-            }
-        
-            @keyframes blinking {
-                from,
-                to {
-                    border-color: transparent;
-                }
-        
-                50% {
-                    border-color: black;
-                }
-            }
-        }
-    }
-
-    .card:nth-child(2) {
         .title {
             border-color: var(--box-purple-top-bd);
             background-color: var(--box-purple-top-bg);
@@ -201,50 +196,38 @@ body {
         .data {
             border-color: var(--box-purple-bottom-bd);
             background-color: var(--box-purple-bottom-bg);
+            text-align: center;
 
-            img {
-                max-width: 100%;
-                height: auto;
-            }
-
-            li {
-                list-style: none;
-                /* Schaltet die Standard-Punkte aus */
-                padding-left: 30px;
-                /* Schafft Platz links für das Icon */
-                background-repeat: no-repeat;
-                /* Verhindert, dass das Bild sich wiederholt */
-                background-position: left center;
-                /* Richtet das Icon vertikal mittig aus */
-
-                /* Hier steuern Sie die Größe aller Icons (Breite und Höhe) */
-                background-size: 20px 20px;
-
-                /* Sorgt dafür, dass der Text sauber neben dem Icon steht */
-                min-height: 20px;
+            .portrait {
+                height: 60%;
                 display: flex;
-                align-items: center;
+                justify-content: space-around;
+                background-color: var(--box-purple-top-bg);
+                padding: 5px;
+                border: 3px solid var(--box-purple-top-bd);
+                box-shadow: 6px 6px 0px #333333;
+
+                img {
+                    max-height: 100%;
+                    max-width: 80%;
+                    width: auto;
+                    height: auto;
+                    object-fit: contain;
+                }
             }
 
-            li.punkt-email {
-                background-image: url('images/mail.png');
+            th,
+            td {
+                padding: 10px;
+                border-bottom: 1px dashed #333333;
             }
-
-            li.punkt-phonenumber {
-                background-image: url('images/phonenumber.png');
-            }
-
-            li.punkt-github {
-                background-image: url('images/git.png');
-            }
-
-            li.punkt-leetcode {
-                background-image: url('images/leetcode.png');
+            table {
+                width: 100%;
             }
         }
     }
 
-    .card:nth-child(3) {
+    .card:nth-child(2) {
         .title {
             border-color: var(--box-green-top-bd);
             background-color: var(--box-green-top-bg);
@@ -253,10 +236,29 @@ body {
         .data {
             border-color: var(--box-green-bottom-bd);
             background-color: var(--box-green-bottom-bg);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 20px;
+
+            .button-link {
+                height: max-content;
+                display: inline-block;
+                padding: 2px 10px;
+                background-color: var(--box-green-top-bd);
+                box-shadow: 6px 6px 0px grey;
+                text-decoration: none;
+                color: black;
+            }
+        
+            .button-link:hover {
+                background-color: var(--box-green-top-bg);
+            }
         }
     }
 
-    .card:nth-child(4) {
+    .card:nth-child(3) {
         .title {
             border-color: var(--box-orange-top-bd);
             background-color: var(--box-orange-top-bg);
@@ -265,10 +267,29 @@ body {
         .data {
             border-color: var(--box-orange-bottom-bd);
             background-color: var(--box-orange-bottom-bg);
+
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .box-with-shadow {
+                height: 70px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px;
+                border: 3px solid #F8C58B;
+                box-shadow: 6px 6px 0px grey;
+
+                img {
+                    height: 100%;
+                }
+            }
         }
     }
 
-    .card:nth-child(5) {
+    .card:nth-child(4) {
         .title {
             border-color: var(--box-brown-top-bd);
             background-color: var(--box-brown-top-bg);
@@ -277,6 +298,18 @@ body {
         .data {
             border-color: var(--box-brown-bottom-bd);
             background-color: var(--box-brown-bottom-bg);
+        }
+    }
+
+    .card:nth-child(5) {
+        .title {
+            border-color: var(--box-blue-top-bd);
+            background-color: var(--box-blue-top-bg);
+        }
+
+        .data {
+            border-color: var(--box-blue-bottom-bd);
+            background-color: var(--box-blue-bottom-bg);
         }
     }
 
@@ -289,53 +322,6 @@ body {
         .data {
             border-color: var(--box-blue-bottom-bd);
             background-color: var(--box-blue-bottom-bg);
-
-            li {
-                list-style: none;
-                /* Schaltet die Standard-Punkte aus */
-                padding-left: 30px;
-                /* Schafft Platz links für das Icon */
-                background-repeat: no-repeat;
-                /* Verhindert, dass das Bild sich wiederholt */
-                background-position: left center;
-                /* Richtet das Icon vertikal mittig aus */
-        
-                /* Hier steuern Sie die Größe aller Icons (Breite und Höhe) */
-                background-size: 20px 20px;
-        
-                /* Sorgt dafür, dass der Text sauber neben dem Icon steht */
-                min-height: 20px;
-                display: flex;
-                align-items: center;
-            }
-        
-            li.punkt-email {
-                background-image: url('images/mail.png');
-            }
-        
-            li.punkt-phonenumber {
-                background-image: url('images/phonenumber.png');
-            }
-        
-            li.punkt-github {
-                background-image: url('images/git.png');
-            }
-        
-            li.punkt-leetcode {
-                background-image: url('images/leetcode.png');
-            }
-        }
-    }
-
-    .card:nth-child(7) {
-        .title {
-            border-color: var(--box-blue-top-bd);
-            background-color: var(--box-blue-top-bg);
-        }
-
-        .data {
-            border-color: var(--box-blue-bottom-bd);
-            background-color: var(--box-blue-bottom-bg);
         }
     }
 }
@@ -343,166 +329,48 @@ body {
 
 
 
-
-/* 2. SEKTIONEN: Jede Sektion nimmt den ganzen Bildschirm ein */
-.section {
-    width: 100%;
-    height: 100vh;
-    scroll-snap-align: start;
-    /* Am oberen Rand einrasten */
-
-    /* Inhalt in der Mitte der Sektion zentrieren */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    color: white;
-    /* schriftfarbe */
-
-    gap: 30px;
-}
-
-.section>* {
-    width: 90%;
-    /* Leaves 5% space on the left and right sides */
-    max-width: 1200px;
-    /* Optional cap so it doesn't get too wide on huge screens */
-    margin-top: 20px;
-    /* Optional top spacing */
-}
-
-.main-image {
-    height: 50%;
-    width: auto;
-    flex-shrink: 0;
-    border: 3px solid white;
-    border-radius: 100px;
-}
-
-.sec-1 {
-    background-color: var(--bg-1);
-    text-align: top;
-}
-
-.typing-border {
-    border: 3px solid white;
-    border-radius: 50px;
-    background-color: var(--bg-sidebar);
-    width: 92%;
-    display: flex;
-    justify-content: center;
-    /* Horizontally centers the typing box */
-    align-items: center;
-    /* Vertically centers the typing text */
-}
-
-.typing-text {
-    font-family: monospace;
-    font-size: 60px;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 2px solid white;
-    display: inline-block;
-    /* Required for width animation */
-
+ul {
+    list-style: none;
     margin: 0;
-
-    animation:
-        typing 2s steps(29, end) forwards,
-        blinking 0.75s step-end infinite;
+    padding: 0;
 }
 
-@keyframes typing {
-    from {
-        width: 0;
-    }
+li {
+    background-image: url("images/two_arrows.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 16px 16px;
+    /* hier die Größe festlegen */
 
-    to {
-        width: 29ch;
-    }
-}
-
-@keyframes blinking {
-
-    from,
-    to {
-        border-color: transparent;
-    }
-
-    50% {
-        border-color: white;
-    }
-}
-
-.sec-2 {
-    background-color: var(--bg-2);
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* 3 equal columns */
-    grid-template-rows: repeat(2, 1fr);
-    /* 2 equal rows */
-    gap: 20px;
-    /* Space between items */
-
-    width: 90%;
-    height: 80%;
-    /* Fills available vertical height */
-}
-
-/* Base styling for the 6 inner boxes */
-.skill-card {
-    background-color: var(--bg-sidebar, #2a2a2a);
-    border: 3px solid white;
-    border-radius: 12px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 20px;
-
-
-    /* Center content inside each card */
+    padding-left: 20px;
+    /* Platz für das Icon + Abstand zum Text */
+    min-height: 20px;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
 }
 
-.skill-card h1 {
-    font-family: American Typewriter, serif;
-    color: white;
-    font-size: larger;
-    align-items: flex-start;
+li.bullet-best {
+    background-image: url("images/best.png");
 }
 
-.skill-item {
-    width: 100%;
+li.bullet-better {
+    background-image: url("images/better.png");
+}
+
+li.bullet-mid {
+    background-image: url("images/mid.png");
+}
+
+li.bullet-worst {
+    background-image: url("images/worst.png");
+}
+
+.box-with-shadow {
+    height: max-content;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.align-left {
-    font-family: monospace;
-}
-
-.checked {
-    color: orange;
-}
-
-.sec-3 {
-    background-color: var(--bg-3);
-}
-
-
-
-.sec-4 {
-    background-color: var(--bg-4);
-}
-
-.describtion {
-    font-family: American Typewriter, serif;
-    color: white;
-    font-size: medium;
+    padding: 10px;
+    border: 3px solid;
+    box-shadow: 6px 6px 0px grey;
 }

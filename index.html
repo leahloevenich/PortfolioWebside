@@ -8,175 +8,186 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols:wght@100..900&family=VT323&display=swap" rel="stylesheet">
-
-    <script type="module" src="main.js"></script>
+    <!--<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols:wght@100..900&family=VT323&display=swap" rel="stylesheet">-->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="whole-grid">
-        <div class="card">
-            <div class="title"></div>
-            <div class="data">
-                <div class="ws-heading">Leah Marie Lövenich</div>
-                <div class="banner">This is my website!</div>
-            </div>
+    <div class="whole-box">
+        <div class="heading">
+            <div class="ws-heading">Leah Marie Lövenich</div>
+            <div class="banner">This is my website!</div>
         </div>
 
+        <div class="whole-grid">
 
-        <div class="card">
-            <div class="title">This is me</div>
-            <div class="data">
-                <img src="images/char1.png" alt="Image">
-            </div>
-        </div>
+            <div class="card">
+                <div class="title">
+                    <img src="images/profile.png" alt="Image">
+                    <p>Charakter & Stats</p>
+                </div>
+                <div class="data">
+                    <div class="portrait">
+                        <button type="button" onclick="turnLeft()" style="border: none; background: none; padding: 0; cursor: pointer;">
+                            <img src="images/button-left.png" alt="Button Description">
+                        </button>
+                        <img id="myImage" src="images/front2.png" alt="Image">
+                        <button type="button" onclick="turnRight()" style="border: none; background: none; padding: 0; cursor: pointer;">
+                            <img src="images/button-right.png" alt="Button Description">
+                        </button>
 
+                        <ul>
+                            <li>Name: Leah Marie Lövenich</li>
+                            <li>Alias: Leahmaus, Leahwurst</li>
+                            <li>Level: 23</li>
+                            <li>Spezies: Software Engineer</li>
+                        </ul>
 
-        <div class="card">
-            <div class="title">
-                <img src="images/speak.png" alt="Image">
-                <p>My Character</p>
-            </div>
-            <div class="data">
-                Erstmal ein kleiner Text zu mir? 
-                <ul>
-                    <li class="punkt-email">e-mail</li>
-                    <li class="punkt-phonenumber">phone number</li>
-                    <li class="punkt-github">github</li>
-                    <li class="punkt-leetcode">leetcode</li>
-                </ul>
-            </div>
-        </div>
+                    </div>
 
-        <div class="card">
-            <div class="title">
-                <img src="images/star.png" alt="Image">
-                <p>Stats</p>
-            </div>
-            <div class="data">
+                    <table>
+                        <tr>
+                            <td style="text-align: left;">Alter:</td>
+                            <td style="text-align: right;">23 Jahre</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Superkraft:</td>
+                            <td style="text-align: right;">Motiviert!</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Lieblingsgetränk:</td>
+                            <td style="text-align: right;">Matcha</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Hobbys:</td>
+                            <td style="text-align: right;">Tanzen, Backen, Häckeln</td>
+                        </tr>
+                    </table>
+                </div>
                 
             </div>
-        </div>
 
-        <div class="card">
-            <div class="title">
-                <img src="images/map.png" alt="Image">
-                <p>Achivements</p>
+            <div class="card">
+                <div class="title">
+                    <img src="images/star4.png" alt="Image">
+                    <p>Contact me!</p>
+                </div>
+                <div class="data">
+                    You can contact me here:
+                    <div class="box-with-shadow" style="border-color: #9FD1B3;">
+                        <a>leah.loevenich@gmail.com</a>
+                        <a href="mailto:leah.loevenich@gmail.com" class="button-link">Open</a>
+                    </div>
+                    <div class="box-with-shadow" style="border-color: #9FD1B3;">
+                        <a>+49 175 87834242</a>
+                        <a href="tel:+49 175 87834242" class="button-link">Open</a>
+                    </div>
+                    <div class="box-with-shadow" style="border-color: #9FD1B3;">
+                        <a>Github</a>
+                        <a href="https://github.com/leahloevenich" class="button-link">Open</a>
+                    </div>
+                    <div class="box-with-shadow" style="border-color: #9FD1B3;">
+                        <a>Leetcode</a> 
+                        <a href="https://leetcode.com/" class="button-link">Open</a>
+                    </div>
+                </div>
             </div>
-            <div class="data">uni abschluss</div>
-        </div>
 
-        <div class="card">
-            <div class="title">
-                <img src="images/heart.png" alt="Image">
-                <p>Hobbys</p>
+            <div class="card">
+                <div class="title">
+                    <img src="images/achivements.png" alt="Image">
+                    <p>Achivements</p>
+                </div>
+                <div class="data">
+                    <div class="box-with-shadow">
+                        <img src="images/school.png">
+                        Gymnasium Abschluss
+                    </div>
+                    <div class="box-with-shadow">
+                        <img src="images/uni.png">
+                        Hochschul Abschluss
+                    </div>
+                </div>
             </div>
-            <div class="data">
-                <ul>
-                    <li class="punkt-email">tanzen</li>
-                    <li class="punkt-phonenumber">häckeln</li>
-                    <li class="punkt-github">programmieren</li>
-                    <li class="punkt-leetcode">kochen</li>
-                </ul>
-            </div>
-        </div>
 
-        <div class="card">
-            <div class="title">projekt 1</div>
-            <div class="data">describtion</div>
+            <div class="card">
+                <div class="title">
+                    <img src="images/languages.png" alt="Image">
+                    <p>Languages & Frameworks</p>
+                </div>
+                <div class="data">
+                    <ul>
+                        <li class="bullet-best"></li>
+                        <li class="bullet-better">Java</li>
+                        <li class="bullet-better">Python</li>
+                        <li class="bullet-better">TypeScript</li>
+                        <li class="bullet-mid">Javascript</li>
+                        <li class="bullet-mid">C/C++</li>
+                        <li class="bullet-worst">Node.js</li>
+                    </ul>    
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="title">
+                    <img src="images/tools.png" alt="Image">
+                    <p>Developer Tools & Infrastructure</p>
+                </div>
+                <div class="data">
+                    <ul>
+                        <li class="bullet-best"></li>
+                        <li class="bullet-better">Git & Github</li>
+                        <li class="bullet-better">VS Code</li>
+                        <li class="bullet-mid">JetBrains IDEs</li>
+                        <li class="bullet-mid">Docker</li>
+                        <li class="bullet-worst">Bash</li>
+                    </ul>    
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="title">
+                    <img src="images/cs.png" alt="Image">
+                    <p>Computer Science Fundamentals</p>
+                </div>
+                <div class="data">
+                    <ul>
+                        <li class="bullet-best"></li>
+                        <li class="bullet-better">Data Structures & Algorithms</li>
+                        <li class="bullet-mid">Object-Oriented Programming (OOP)</li>
+                        <li class="bullet-worst">Relational & Non-Relational Databases (MongoDB)</li>
+                    </ul>    
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="title">Stabu</div>
+                <div class="data">project describtion</div>
+            </div>
         </div>
     </div>
 
+
+
 <!--
-        <section class="section sec-1" id="sec-1">
-            <div class="typing-border"><h1 class="typing-text">Hello, welcome to my website!</h1></div>
-            <img class="main-image" src="images/spiegelselfie.jpg">
-        </section>
 
-        <section class="section sec-2" id="sec-2">
-            <h1>Skills</h1>
-            <div class="skills-grid">
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-                <div class="skill-card"><h1>Languages</h1>
-                    <br>
-                    <div class="skill-item">
-                        <div class="align-left">Java</div>
-                        <div class="align-right">                        
+                      
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star"></span>
                             <span class="fa fa-star"></span>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="align-left">Javascript</div>
-                        <div class="align-right">                        
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="align-left">Python</div>
-                        <div>                        
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="align-left">HTMl</div>
-                        <div class="align-right">                        
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="align-left">CSS</div>
-                        <div class="align-right">                        
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="skill-card">Tools</div>
-                <div class="skill-card">stirnraten</div>
-                <div class="skill-card">Rezepte app</div>
-                <div class="skill-card">diese webseite</div>
-                <div class="skill-card">more coming...</div>
-            </div>
-        </section>
 
 
 
-        <section class="section sec-4" id="sec-4">
             <div class="heading">⊹₊˚‧︵‿₊⊱·✶ Contact ✶·⊰₊‿︵‧˚₊⊹</div>
-            <div class="describtion">
+
                 Hi, ich bin Leah. Ich bin Software Engineer und baue digitale Lösungen. Da ich mich für die gesamte Bandbreite der Softwareentwicklung begeistere, lege ich mich nicht auf einen festen Schwerpunkt fest. Vom Frontend über die Logik im Backend bis hin zur Cloud – ich liebe es, neue Technologien zu lernen und das passende Werkzeug für das jeweilige Problem zu wählen. Ich bin offen für neue Herausforderungen und vielseitige Projekte.
-            </div>
-            <br>
-            <p>You're welcome to contact me here:</p>
-            <ul>
-                <li>email</li>
-                <li>github</li>
-                <li>linkedin</li>
-                <li>unterschrift?</li>
-            </ul>
+
         </section>
     -->
 
-
+    <script src="main.js"></script>
 </body>
 </html>
