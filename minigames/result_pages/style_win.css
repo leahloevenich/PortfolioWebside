@@ -88,6 +88,32 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    a:link,
+    a:visited {
+        width: 100%;
+        background-color: #C3423F;
+        color: white;
+        padding: 14px 25px;
+        text-align: center;
+        text-decoration: none;
+        font-size: xx-large;
+        display: inline-block;
+        box-shadow: 6px 6px 0px #333333;
+    }
+
+    a:hover,
+    a:active {
+        background-color: #4E1918;
+    }
+
+        img {
+            width: 180px;
+            -webkit-animation: breathing 5s ease-out infinite normal;
+            animation: breathing 5s ease-out infinite normal;
+            color: #fff;
+            -webkit-font-smoothing: antialiased;
+        }
 }
 
 .heading {
@@ -138,15 +164,6 @@ body {
     }
 }
 
-img {
-    width: 180px;
-    -webkit-animation: breathing 5s ease-out infinite normal;
-    animation: breathing 5s ease-out infinite normal;
-    color: #fff;
-    -webkit-font-smoothing: antialiased;
-}
-
-
 @-webkit-keyframes breathing {
     0% {
         -webkit-transform: scale(0.9);
@@ -195,48 +212,73 @@ img {
     }
 }
 
-.three-boxes {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
 .win-text {
-        height: max-content;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            border: 3px solid;
-            box-shadow: 6px 6px 0px grey;
+    height: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
 
     font-size: xx-large; 
-
-    animation: 
-        win-text 2s steps(1, end) infinite;
 }
 
-@keyframes win-text {
-    50% {
-            border-color: yellow;
-        }
-}
-
-
-a:link,
-a:visited {
-    width: 100%;
-    background-color: #C3423F;
+.homemenu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 5px;
     color: white;
-    padding: 14px 25px;
-    text-align: center;
-    text-decoration: none;
-    font-size: xx-large;
-    display: inline-block;
-    box-shadow: 6px 6px 0px #333333;
-}
+    background-color: black;
+    border: 3px solid white;
 
-a:hover,
-a:active {
-    background-color: #4E1918;
+    display: flex;
+    justify-content: center;
+
+    span {
+        font-size: 20px;
+    }
+
+    .image-button {
+        display: inline-block;
+        /* Allows width/height styling if needed */
+        border: none;
+        background: none;
+        padding: 0;
+        margin: 0;
+        text-decoration: none;
+        /* Removes underline from link */
+    }
+
+    .image-button img {
+        display: block;
+        /* Removes any bottom spacing gap under inline images */
+        border: none;
+        width: auto;
+        /* Optional: Set your desired width */
+        height: 20px;
+        /* Maintains aspect ratio */
+    }
+
+    /* Optional hover/active effects */
+    .image-button:hover {
+        opacity: 0.8;
+        /* Slight fade effect when hovered */
+    }
+
+    .image-button:active {
+        opacity: 0.6;
+        /* Slight press effect */
+    }
+
+    a:link,
+    a:visited {
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+    }
+
+    a:hover,
+    a:active {
+        color: #4E1918;
+    }
 }

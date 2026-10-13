@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leah Lövenich</title>
+    <link rel="stylesheet" href="style_minesweeper.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="whole-box">
+        <div class="heading">
+            <div class="ws-heading">Leah Marie Lövenich presents...</div>
+            <div class="banner">Poopsweeper</div>
+        </div>
+
+        <div class="whole-grid">
+            <div class="gamefunctions">
+                <button class="toggle-btn" id="flower" aria-pressed="false">
+                    <img src="../../images/minigames/minesweeper/safe.png" alt="" class="toggle-icon">
+                    <span class="toggle-label">Place flower</span>
+                </button>
+                <div class="gamestats">
+                    <p>Field size: <span id = "fieldsize">...loading...</span></p>
+                    <p>Number of bombs: <span id = "numberBombs">...loading...</span></p>
+                </div>
+                <button class="toggle-btn" id="stool" aria-pressed="false">
+                    <img src="../../images/minigames/minesweeper/bomb.png" alt="" class="toggle-icon">
+                    <span class="toggle-label">Place stool</span>
+                </button>
+            </div>
+            <div id="board"></div>
+            
+        </div>
+    </div>
+
+    <div class="homemenu">
+        <a href="../../index.html" class="image-button">
+            <img src="../../images/home.png" alt="Button description">
+        </a>
+        <span> | </span>
+        <a href="../../impressum.html" class="home-link">IMPRESSUM</a>
+        <span> | </span>
+        <a href="../../datenschutz.html" class="home-link">DATENSCHUTZ</a>
+    </div>
+
+    <script src="minesweeper.js"></script>
+</body>
+</html>

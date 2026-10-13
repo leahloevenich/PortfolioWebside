@@ -242,68 +242,92 @@ body {
             }
         }
     }
+
+        a:link,
+        a:visited {
+            width: 100%;
+            background-color: #C3423F;
+            color: white;
+            padding: 14px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 6px 6px 0px #333333;
+        }
+    
+        a:hover,
+        a:active {
+            background-color: #4E1918;
+        }
+    
+        .box-with-shadow {
+            height: max-content;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border: 3px solid;
+            box-shadow: 6px 6px 0px grey;
+        }
 }
 
-
-a:link,
-a:visited {
-    width: 100%;
-    background-color: #C3423F;
+.homemenu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 5px;
     color: white;
-    padding: 14px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    box-shadow: 6px 6px 0px #333333;
-}
+    background-color: black;
+    border: 3px solid white;
 
-a:hover,
-a:active {
-    background-color: #4E1918;
-}
-
-ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-li {
-    background-image: url("images/two_arrows.png");
-    background-repeat: no-repeat;
-    background-position: left center;
-    background-size: 16px 16px;
-    /* hier die Größe festlegen */
-
-    padding-left: 20px;
-    /* Platz für das Icon + Abstand zum Text */
-    min-height: 20px;
     display: flex;
-    align-items: center;
-}
+    justify-content: center;
 
-li.bullet-best {
-    background-image: url("images/best.png");
-}
+    span {
+        font-size: 20px;
+    }
 
-li.bullet-better {
-    background-image: url("images/better.png");
-}
+    .image-button {
+        display: inline-block;
+        /* Allows width/height styling if needed */
+        border: none;
+        background: none;
+        padding: 0;
+        margin: 0;
+        text-decoration: none;
+        /* Removes underline from link */
+    }
 
-li.bullet-mid {
-    background-image: url("images/mid.png");
-}
+    .image-button img {
+        display: block;
+        /* Removes any bottom spacing gap under inline images */
+        border: none;
+        width: auto;
+        /* Optional: Set your desired width */
+        height: 20px;
+        /* Maintains aspect ratio */
+    }
 
-li.bullet-worst {
-    background-image: url("images/worst.png");
-}
+    /* Optional hover/active effects */
+    .image-button:hover {
+        opacity: 0.8;
+        /* Slight fade effect when hovered */
+    }
 
-.box-with-shadow {
-    height: max-content;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border: 3px solid;
-    box-shadow: 6px 6px 0px grey;
+    .image-button:active {
+        opacity: 0.6;
+        /* Slight press effect */
+    }
+
+    a:link,
+    a:visited {
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+    }
+
+    a:hover,
+    a:active {
+        color: #4E1918;
+    }
 }

@@ -448,3 +448,64 @@ li.bullet-worst {
     border: 3px solid #333333;
     box-shadow: 6px 6px 0px grey;
 }
+
+.homemenu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 5px;
+    color: white;
+    background-color: black;
+    border: 3px solid white;
+
+    display: flex;
+    justify-content: center;
+
+    span {
+        font-size: 20px;
+    }
+
+    .image-button {
+        display: inline-block;
+        /* Allows width/height styling if needed */
+        border: none;
+        background: none;
+        padding: 0;
+        margin: 0;
+        text-decoration: none;
+        /* Removes underline from link */
+    }
+
+    .image-button img {
+        display: block;
+        /* Removes any bottom spacing gap under inline images */
+        border: none;
+        width: auto;
+        /* Optional: Set your desired width */
+        height: 20px;
+        /* Maintains aspect ratio */
+    }
+
+    /* Optional hover/active effects */
+    .image-button:hover {
+        opacity: 0.8;
+        /* Slight fade effect when hovered */
+    }
+
+    .image-button:active {
+        opacity: 0.6;
+        /* Slight press effect */
+    }
+
+    a:link,
+    a:visited {
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+    }
+
+    a:hover,
+    a:active {
+        color: #4E1918;
+    }
+}

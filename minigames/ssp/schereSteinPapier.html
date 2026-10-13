@@ -1,146 +1,65 @@
 <!DOCTYPE html>
 <html>
-    <title>SSP</title>
-    <link rel="icon" type="image/png" href="images/website_icon.png">
-    <!-- hier ein kommentar. -->
-    <style>
-        h1 {text-align: center;}
-    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leah Lövenich</title>
+    <link rel="stylesheet" href="style_ssp.css">
 
-    <style>
-        .imagebutton {
-            display: flex;              /* Aktiviert Flexbox im Button */
-            align-items: center;        /* Zentriert Bild und Text vertikal */
-            justify-content: center;    /* Zentriert beides horizontal im Button */
-            gap: 20px;                  /* Erzeugt einen Abstand zwischen Bild und Text */
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="whole-box">
+        <div class="heading">
+            <div class="ws-heading">Leah Marie Lövenich presents...</div>
+            <div class="banner">Rock, paper, scissors</div>
+        </div>
 
-            background-color:#BBBDF6;
-            color:#AA4465;
-            border: 1px solid #AA4465;
-            padding: 15px 30px;
-            border-radius: 10px;
-            text-align: center;
-            text-decoration: wavy;
-            font-size: large;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
+        <div class="whole-grid">
+            <div class="lastgame">
+                <div class="gamedata">
+                    <p>Players choice: <span id = "player">...loading...</span></p>
+                </div>
+                <div class="gamestats">
+                    <span id = "playerPoints">0</span>
+                    <p><span id = "res">...loading...</span></p>
+                    <span id = "computerPoints">0</span>
+                </div>
+                <div class="gamedata">
+                    <p>Computers choice:   <span id = "computer">...loading...</span></p>
+                </div>
+            </div>
 
-        .imagebutton img {
-            height: 24px;          /* Passt die Höhe des Icons an den Text an */
-            width: auto;
-        }
-    </style>
-
-    <style>
-        .imagebuttonGame {
-            display: flex;              /* Aktiviert Flexbox im Button */
-            flex-direction: column;
-            align-items: center;        /* Zentriert Bild und Text vertikal */
-            justify-content: center;    /* Zentriert beides horizontal im Button */
-            gap: 20px;                  /* Erzeugt einen Abstand zwischen Bild und Text */
-
-            background-color:#BBBDF6;
-            color:#AA4465;
-            border: 1px solid #AA4465;
-            padding: 15px 30px;
-            border-radius: 10px;
-            text-align: center;
-            text-decoration: wavy;
-            font-size: large;
-            position: relative;
-
-            width: 400px;
-            height: 350px;
-        }
-
-        .imagebuttonGame img {
-            height: auto;          /* Passt die Höhe des Icons an den Text an */
-            width: 80%;
-        }
-
-        .imagebuttonGame span {
-            font-size: 1.5rem;   /* This makes the text larger */
-        }
-    </style>
-
-
-
-    <!-- hier der code für den split screen. -->
-    <style>
-        /* Der Container füllt den ganzen Bildschirm */
-        .split-container {
-        display: flex;         /* Aktiviert das Flexbox-System */
-        /*height: 100vh;        /* 100% der Bildschirmhöhe (Viewport Height) */
-        width: 100%;          /* Volle Breite */
-        }
-
-        /* Beide Hälften teilen sich den Platz gleichmäßig */
-        .left-side, .right-side {
-        width: 33%;              /* Beide nehmen genau den gleichen Platz ein (50/50) */
-        padding: 20px;        /* Abstand zum Rand innen */
-        display: flex;
-        flex-direction: column;
-        justify-content: center; /* Inhalt vertikal zentrieren */
-        align-items: center;     /* Inhalt horizontal zentrieren */
-        }
-        .mid-side {
-        width: 34%;              /* Beide nehmen genau den gleichen Platz ein (50/50) */
-        padding: 20px;        /* Abstand zum Rand innen */
-        display: flex;
-        flex-direction: column;
-        justify-content: center; /* Inhalt vertikal zentrieren */
-        align-items: center;     /* Inhalt horizontal zentrieren */
-        }
-    </style>
-
-    <body style="background-color: #F3FFE1;">
-        <h1><span style="color: #BBBDF6;">⋆.  ˚ ❀  ⋆  </span> 
-            <span style="color: #9893DA;"> Willkommen zu Schere-Stein-Papier! </span>
-            <span style="color: #BBBDF6;">  ⋆  ❀  ˚ .⋆</span> 
-        </h1> 
-        
-        <a href="index.html" style="text-decoration: none;">
-            <button class="imagebutton">
-                <img src="images/homebutton.png" alt="Icon">
-                <span>| home</span>
-            </button>
-        </a>
-
-        <p>This was your choice: <span id = "player">...lädt...</span></p>
-        <p>This was my choice:   <span id = "computer">...lädt...</span></p>
-
-        <div class="split-container">
-            <div class="left-side">
+            <div class="game">
                 <button class="imagebuttonGame" onclick="scissorClicked()">
-                    <img src="images/ssp/ssp_scissor.png" alt="Icon">
-                    <span>scissor</span>
+                    <img src="../../images/minigames/ssp/ssp_scissor.png" alt="Icon">
                 </button>
-            </div>
 
-            <div class="mid-side"> 
                 <button class="imagebuttonGame" onclick="rockClicked()">
-                    <img src="images/ssp/ssp_rock.png" alt="Icon">
-                    <span>rock</span>
+                    <img src="../../images/minigames/ssp/ssp_rock.png" alt="Icon">
                 </button>
-            </div>
             
-            <div class="right-side">
                 <button class="imagebuttonGame" onclick="paperClicked()">
-                    <img src="images/ssp/ssp_paper.png" alt="Icon">
-                    <span>paper</span>
+                    <img src="../../images/minigames/ssp/ssp_paper.png" alt="Icon">
                 </button>
             </div>
         </div>
+    </div>
 
-        <script src="schereSteinPapier.js"></script>
-    </body>
+    <div class="homemenu">
+        <a href="../../index.html" class="image-button">
+            <img src="../../images/home.png" alt="Button description">
+        </a>
+        <span> | </span>
+        <a href="../../impressum.html" class="home-link">IMPRESSUM</a>
+        <span> | </span>
+        <a href="../../datenschutz.html" class="home-link">DATENSCHUTZ</a>
+    </div>
+
+        
+
+    <script src="schereSteinPapier.js"></script>
+</body>
 </html>
-
-
-
-
-
-
-
