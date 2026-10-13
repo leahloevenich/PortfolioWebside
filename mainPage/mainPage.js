@@ -4,10 +4,10 @@
 
 let position = 0;
 const images = [
-    "images/front2.png",
-    "images/left2.png",
-    "images/back2.png",
-    "images/right2.png",
+  "../images/mainPage/front2.png",
+  "../images/mainPage/left2.png",
+  "../images/mainPage/back2.png",
+  "../images/mainPage/right2.png",
 ];
 
 function turnLeft() {

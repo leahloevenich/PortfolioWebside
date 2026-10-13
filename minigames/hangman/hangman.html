@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leah Lövenich</title>
+    <link rel="stylesheet" href="style_hangman.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="whole-box">
+        <div class="heading">
+            <div class="ws-heading">Leah Marie Lövenich presents...</div>
+            <div class="banner">Hangman</div>
+        </div>
+
+        <div class="whole-grid">
+            <div class="status">
+                <img id="hangman_visual" src="../../images/minigames/hangman/status_0.png" alt="Hangman Status">
+            </div>
+            
+            <div class="game">
+                <div class="box-data">
+                    <h1><span id = "worddisplay">...lädt...</span></h1>
+                </div>
+                <div class="box-data">
+                    <h2>Already guessed letters:</h2>
+                    <p><span id = "guessedletters"></span></p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <script src="hangman.js"></script>
+</body>
+</html>

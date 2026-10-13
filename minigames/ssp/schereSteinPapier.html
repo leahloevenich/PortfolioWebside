@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <title>SSP</title>
+    <link rel="icon" type="image/png" href="images/website_icon.png">
+    <!-- hier ein kommentar. -->
+    <style>
+        h1 {text-align: center;}
+    </style>
+
+    <style>
+        .imagebutton {
+            display: flex;              /* Aktiviert Flexbox im Button */
+            align-items: center;        /* Zentriert Bild und Text vertikal */
+            justify-content: center;    /* Zentriert beides horizontal im Button */
+            gap: 20px;                  /* Erzeugt einen Abstand zwischen Bild und Text */
+
+            background-color:#BBBDF6;
+            color:#AA4465;
+            border: 1px solid #AA4465;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: wavy;
+            font-size: large;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .imagebutton img {
+            height: 24px;          /* Passt die Höhe des Icons an den Text an */
+            width: auto;
+        }
+    </style>
+
+    <style>
+        .imagebuttonGame {
+            display: flex;              /* Aktiviert Flexbox im Button */
+            flex-direction: column;
+            align-items: center;        /* Zentriert Bild und Text vertikal */
+            justify-content: center;    /* Zentriert beides horizontal im Button */
+            gap: 20px;                  /* Erzeugt einen Abstand zwischen Bild und Text */
+
+            background-color:#BBBDF6;
+            color:#AA4465;
+            border: 1px solid #AA4465;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: wavy;
+            font-size: large;
+            position: relative;
+
+            width: 400px;
+            height: 350px;
+        }
+
+        .imagebuttonGame img {
+            height: auto;          /* Passt die Höhe des Icons an den Text an */
+            width: 80%;
+        }
+
+        .imagebuttonGame span {
+            font-size: 1.5rem;   /* This makes the text larger */
+        }
+    </style>
+
+
+
+    <!-- hier der code für den split screen. -->
+    <style>
+        /* Der Container füllt den ganzen Bildschirm */
+        .split-container {
+        display: flex;         /* Aktiviert das Flexbox-System */
+        /*height: 100vh;        /* 100% der Bildschirmhöhe (Viewport Height) */
+        width: 100%;          /* Volle Breite */
+        }
+
+        /* Beide Hälften teilen sich den Platz gleichmäßig */
+        .left-side, .right-side {
+        width: 33%;              /* Beide nehmen genau den gleichen Platz ein (50/50) */
+        padding: 20px;        /* Abstand zum Rand innen */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Inhalt vertikal zentrieren */
+        align-items: center;     /* Inhalt horizontal zentrieren */
+        }
+        .mid-side {
+        width: 34%;              /* Beide nehmen genau den gleichen Platz ein (50/50) */
+        padding: 20px;        /* Abstand zum Rand innen */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Inhalt vertikal zentrieren */
+        align-items: center;     /* Inhalt horizontal zentrieren */
+        }
+    </style>
+
+    <body style="background-color: #F3FFE1;">
+        <h1><span style="color: #BBBDF6;">⋆.  ˚ ❀  ⋆  </span> 
+            <span style="color: #9893DA;"> Willkommen zu Schere-Stein-Papier! </span>
+            <span style="color: #BBBDF6;">  ⋆  ❀  ˚ .⋆</span> 
+        </h1> 
+        
+        <a href="index.html" style="text-decoration: none;">
+            <button class="imagebutton">
+                <img src="images/homebutton.png" alt="Icon">
+                <span>| home</span>
+            </button>
+        </a>
+
+        <p>This was your choice: <span id = "player">...lädt...</span></p>
+        <p>This was my choice:   <span id = "computer">...lädt...</span></p>
+
+        <div class="split-container">
+            <div class="left-side">
+                <button class="imagebuttonGame" onclick="scissorClicked()">
+                    <img src="images/ssp/ssp_scissor.png" alt="Icon">
+                    <span>scissor</span>
+                </button>
+            </div>
+
+            <div class="mid-side"> 
+                <button class="imagebuttonGame" onclick="rockClicked()">
+                    <img src="images/ssp/ssp_rock.png" alt="Icon">
+                    <span>rock</span>
+                </button>
+            </div>
+            
+            <div class="right-side">
+                <button class="imagebuttonGame" onclick="paperClicked()">
+                    <img src="images/ssp/ssp_paper.png" alt="Icon">
+                    <span>paper</span>
+                </button>
+            </div>
+        </div>
+
+        <script src="schereSteinPapier.js"></script>
+    </body>
+</html>
+
+
+
+
+
+
+

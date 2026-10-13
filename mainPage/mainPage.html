@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leah Lövenich</title>
+    <link rel="stylesheet" href="style_mainPage.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!--<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols:wght@100..900&family=VT323&display=swap" rel="stylesheet">-->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="whole-box">
+        <div class="heading">
+            <div class="ws-heading">Leah Marie Lövenich</div>
+            <div class="banner">This is my website!</div>
+        </div>
+
+        <div class="whole-grid">
+
+            <div class="card">
+                <div class="title">
+                    <img src="../images/mainPage/profile.png" alt="Image">
+                    <p>Character & Stats</p>
+                </div>
+                <div class="data">
+                    <div class="portrait-box">
+                        <div class="portrait">
+                            <button type="button" onclick="turnLeft()" style="height: 100%; border: none; background: none; padding: 0; cursor: pointer;">
+                                <img src="../images/mainPage/button-left.png" alt="Button Description">
+                            </button>
+                            <img id="myImage" src="../images/mainPage/front2.png" alt="Image">
+                            <button type="button" onclick="turnRight()" style="height: 100%; border: none; background: none; padding: 0; cursor: pointer;">
+                                <img src="../images/mainPage/button-right.png" alt="Button Description">
+                            </button>
+                        </div>
+
+                        <div class="portrait-text">
+                            <b>Leah Marie Lövenich</b>
+                            <ul>
+                                <li>Alias: Leahmaus, Leahwurst</li>
+                                <li>Level: 23</li>
+                                <li>Spezies: Software Engineer</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <table>
+                        <tr>
+                            <td style="text-align: left;">Alter:</td>
+                            <td style="text-align: right;">23 Jahre</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Superkraft:</td>
+                            <td style="text-align: right;">Motiviert!</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Lieblingsgetränk:</td>
+                            <td style="text-align: right;">Matcha</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Hobbys:</td>
+                            <td style="text-align: right;">Tanzen, Backen, Häckeln</td>
+                        </tr>
+                    </table>
+                </div>
+                
+            </div>
+
+            <div class="card">
+                <div class="title">
+                    <img src="../images/mainPage/star4.png" alt="Image">
+                    <p>Contact me!</p>
+                </div>
+                <div class="data">
+                    You can contact me here:
+                    <div class="box-with-shadow" style="border-color: #9FD1B3;">
+                        <a>leah.loevenich@gmail.com</a>
+                        <a href="mailto:leah.loevenich@gmail.com" class="button-link">Open</a>
+                    </div>
+                    <div class="box-with-shadow" style="border-color: #9FD1B3;">
+                        <a>+49 175 87834242</a>
+                        <a href="tel:+49 175 87834242" class="button-link">Open</a>
+                    </div>
+                    <div class="box-with-shadow" style="border-color: #9FD1B3;">
+                        <a>Github</a>
+                        <a href="https://github.com/leahloevenich" class="button-link">Open</a>
+                    </div>
+                    <div class="box-with-shadow" style="border-color: #9FD1B3;">
+                        <a>Leetcode</a> 
+                        <a href="https://leetcode.com/" class="button-link">Open</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="title">
+                    <img src="../images/mainPage/achivements.png" alt="Image">
+                    <p>Achivements</p>
+                </div>
+                <div class="data">
+                    <div class="box-with-shadow">
+                        <img src="../images/mainPage/school.png" alt="School-Badge">
+                        <div class="description">
+                            <div class="large">Gymnasium Abschluss</div>
+                            <span>Abitur an der <i>Marienschule Krefeld</i> erworben.</span>
+                        </div>                        
+                    </div>
+                    <div class="box-with-shadow">
+                        <img src="../images/mainPage/uni.png" alt="Uni-Badge">
+                        <div class="description">
+                            <div class="large">Hochschul Abschluss</div>
+                            <span>Bachelor of Science an der <i>RWTH Aachen</i> erworben.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="title">
+                    <img src="../images/mainPage/languages.png" alt="Image">
+                    <p>Languages & Frameworks</p>
+                </div>
+                <div class="data">
+                    <div class="subcard-stats">Java</div>
+                    <div class="subcard-stats">Python</div>
+                    <div class="subcard-stats">Typescript</div>
+                    <div class="subcard-stats">Javascript</div>
+                    <div class="subcard-stats">C/C++</div>
+                    <div class="subcard-stats">Node.js</div> 
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="title">
+                    <img src="../images/mainPage/tools.png" alt="Image">
+                    <p>Developer Tools & Infrastructure</p>
+                </div>
+                <div class="data">
+                    <div class="subcard-stats">Git & Github</div>
+                    <div class="subcard-stats">VS Code</div>
+                    <div class="subcard-stats">JetBrains IDEs</div>
+                    <div class="subcard-stats">Docker</div>
+                    <div class="subcard-stats">Bash</div>  
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="title">
+                    <img src="../images/mainPage/cs.png" alt="Image">
+                    <p>Computer Science Fundamentals</p>
+                </div>
+                <div class="data">
+                    <div class="subcard-stats">Data Structures & Algorithms</div>
+                    <div class="subcard-stats">Object-Oriented Programming (OOP)</div>
+                    <div class="subcard-stats">Relational & Non-Relational Databases (MongoDB)</div>  
+  
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="title">Stabu</div>
+                <div class="data">
+                    Stabu is a self-coded version of the game "Heads up" or "Stirnraten". I programmed this app, because myself, my family and friends like to play this game but we wanted to have more categrories available than in the free version of the game.
+                    <div class="subcard-stats">
+                        <div class="subcard-title">Stats:</div>
+                        <div class="subcard-data">
+                            <table>
+                                <tr>
+                                    <td style="text-align: left;">Language:</td>
+                                    <td style="text-align: right;">Swift</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="title">Portfolio website</div>
+                <div class="data">
+                    I have coded a website to showcase myself, cv, past projects and my skills.
+                    <div class="subcard-stats">
+                        <div class="subcard-title">Stats:</div>
+                        <div class="subcard-data">
+                            <table>
+                                <tr>
+                                    <td style="text-align: left;">Language:</td>
+                                    <td style="text-align: right;">HTML, CSS, Javascript</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<!--
+
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                      
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+
+
+
+            <div class="heading">⊹₊˚‧︵‿₊⊱·✶ Contact ✶·⊰₊‿︵‧˚₊⊹</div>
+
+                Hi, ich bin Leah. Ich bin Software Engineer und baue digitale Lösungen. Da ich mich für die gesamte Bandbreite der Softwareentwicklung begeistere, lege ich mich nicht auf einen festen Schwerpunkt fest. Vom Frontend über die Logik im Backend bis hin zur Cloud – ich liebe es, neue Technologien zu lernen und das passende Werkzeug für das jeweilige Problem zu wählen. Ich bin offen für neue Herausforderungen und vielseitige Projekte.
+
+        </section>
+    -->
+
+    <script src="mainPage.js"></script>
+</body>
+</html>
