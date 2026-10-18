@@ -143,55 +143,20 @@ body {
     align-items: center;
     gap: 20px;
 
-    .gamefunctions {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
+    .gamestats {
+        height: 75px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        border: 5px solid #CF6563;
+        box-shadow: 6px 6px 0px #333333;
+        font-size: x-large;
 
-        .gamestats {
-            height: 75px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 10px;
-            border: 5px solid #CF6563;
-            box-shadow: 6px 6px 0px #333333;
-            font-size: x-large;
-
-            p {
-                margin: 0;
-            }
-        }
-
-        .toggle-btn {
-            font-family: "VT323", monospace;
-            font-size: larger;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            padding: 10px 16px;
-            border: 5px solid #CF6563;
-            box-shadow: 6px 6px 0px #333333;
-            background-color: transparent;
-
-            transition: background 0.2s;
-        }
-    
-        .toggle-icon {
-            width: 40px;
-            height: 40px;
-            filter: grayscale(100%);
-            transition: filter 0.2s;
-        }
-
-        .toggle-btn[aria-pressed="true"] {
-            background-color: rgba(207, 101, 99, 0.5);
-        }
-    
-        .toggle-btn[aria-pressed="true"] .toggle-icon {
-            filter: none;
+        p {
+            margin: 0;
         }
     }
 

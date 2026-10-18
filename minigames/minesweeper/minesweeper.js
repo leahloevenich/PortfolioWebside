@@ -7,6 +7,7 @@
 // 0: save
 // 1-8: number of bombs
 // 9: bomb
+// 10: not revealed yet
 
 // Easy (Beginner): 9 × 9 grid with 10 bombs
 // Medium (Intermediate): 16 × 16 grid with 40 bombs
@@ -16,12 +17,14 @@
  *	variables
  */
 
-const fieldsize = 16;
+const urlParams = new URLSearchParams(window.location.search);
+const fieldsize = parseInt(urlParams.get("size")) || 9; // Defaults to 9 if none is provided
+
 let numberBombs = 0;
 const field = [];
 const gamefield = [];
+let firstTry = true;
 
-let mode = null; // "flower", "stool" or null
 const buttons = document.querySelectorAll(".toggle-btn");
 
 const board = document.getElementById("board");
@@ -84,66 +87,43 @@ function prepareGame() {
 	for (let i = 0; i < fieldsize; i++) {
 		gamefield.push([]);
 		for (let j = 0; j < fieldsize; j++) {
-			if (field[i][j] === 0) {
-				gamefield[i].push(0);
-			} else if (field[i][j] === 9) {
-				gamefield[i].push(0);
-			} else {
-				gamefield[i].push(field[i][j]);
-			}
+			gamefield[i].push(10);
 		}
 	}
 }
 
 function createButtons() {
-	for (let x = 1; x <= fieldsize; x++) {
-	for (let y = 1; y <= fieldsize; y++) {
-		const button = document.createElement("button");
-		board.style.gridTemplateColumns = `repeat(${fieldsize}, 50px)`;
-		const value = gamefield[x - 1][y - 1];
+  board.style.gridTemplateColumns = `repeat(${fieldsize}, 50px)`;
 
-		if (value === 0) {
+	for (let x = 0; x < fieldsize; x++) {
+			for (let y = 0; y < fieldsize; y++) {
+			const button = document.createElement("button");
+
 			const img = document.createElement("img");
 			img.src = images.questionmark;
 			img.alt = "empty";
 			img.style.width = "30px";
-      		img.style.height = "30px";
+			img.style.height = "30px";
 			button.appendChild(img);
-		} else if (value === 9) {
-			const img = document.createElement("img");
-			img.src = images.bomb;
-			img.alt = "bomb";
-			img.style.width = "30px";
-            img.style.height = "30px";
-			button.appendChild(img);
-		} else if (value === 10) {
-			const img = document.createElement("img");
-			img.src = images.free;
-			img.alt = "safe";
-			img.style.width = "30px";
-      		img.style.height = "30px";
-			button.appendChild(img);
-		} else {
-			button.textContent = value;
-		}
 
-		button.addEventListener("click", () => handleClick(x, y, button));
-		board.appendChild(button);
-	}
+			// Left-click handler
+			button.addEventListener("click", (e) => {
+				handleClick(x, y, button);
+			});
+
+			// Right-click handler
+			button.addEventListener("contextmenu", (e) => {
+				e.preventDefault(); // Prevents the browser's default right-click menu from showing
+				handleRightClick(x, y, button);
+			});
+
+			board.appendChild(button);
+		}
 	}
 }
 
 function incrCounter(x, y) {
-	if (x < 0) {
-		return;
-	}
-	if (y < 0) {
-		return; 
-	}
-	if (x >= fieldsize) {
-		return;
-	}
-	if (y >= fieldsize) {
+	if (checkOutOfBounds(x,y)) {
 		return;
 	}
 	if (field[x][y] != 9) {
@@ -151,76 +131,115 @@ function incrCounter(x, y) {
 	}
 }
 
+function checkOutOfBounds(x,y) {
+	if (x < 0 || y < 0 || x >= fieldsize || y >= fieldsize) {
+		return true;
+	}
+	return false;
+}
 
 /*
  *	handle buttons
  */
-buttons.forEach((btn) => {
-	btn.addEventListener("click", () => {
-		const nowOn = btn.getAttribute("aria-pressed") !== "true";
-
-		// switch every button off first
-		buttons.forEach((b) => b.setAttribute("aria-pressed", "false"));
-
-		// then switch the clicked one on, if it was off
-		btn.setAttribute("aria-pressed", String(nowOn));
-		mode = nowOn ? btn.id : null;
-	});
-});
-
 function handleClick(x, y, button) {
-	const value = gamefield[x-1][y-1];
-	const reveal = field[x-1][y-1];
-	if (mode === "flower") {	// place flower, if there is no bomb. otherwise, end the game
-		if (reveal === 9 && value === 0) {
-			gamefield[x - 1][y - 1] = 10;
-			const img = button.querySelector("img");
-			img.src = images.bomb;
-			img.alt = "bomb";
-			window.location.href = "../result_pages/loss.html"; 
-		} else if (value === 0) {
-			gamefield[x - 1][y - 1] = 10;
-			const img = button.querySelector("img");
-			img.src = images.free;
-			img.alt = "safe";
+	const value = gamefield[x][y];
+	const reveal = field[x][y];
+	if (firstTry) {
+		firstTry = false;
+		if (reveal === 9) {
+			// bomb at first try. try new field
+			window.location.reload();
 		} else if (value === 10) {
-			gamefield[x - 1][y - 1] = 0;
-			const img = button.querySelector("img");
-			img.src = images.questionmark;
-			img.alt = "empty";
-		} else {
+			revealField(x, y);
 		}
-	} else if (mode === "stool") {	// place or delete bomb regardless
-		if ((value === 0) || (value === 10)) {
-			gamefield[x - 1][y - 1] = 9;
+	} else {
+		if (reveal === 9 && value === 10) {
+			// bomb
+			window.location.href = "../result_pages/loss.html";
+		} else if (value === 10) {
+			revealField(x, y);
+		}
+	}
+}
+
+function handleRightClick(x, y, button) {
+  // 1. Get the image element from the button
+  const img = button.querySelector("img");
+  if (!img) return;
+
+  // 2. If the cell is unrevealed (10), flag it as a bomb/questionmark
+  if (gamefield[x][y] === 10) {
+    gamefield[x][y] = 11; // 11 can represent a flagged cell
+    img.src = images.bomb; // (Or a flag image if you have one)
+    img.alt = "bomb";
+  }
+  // 3. If it's already flagged (11), unflag it back to hidden (10)
+  else if (gamefield[x][y] === 11) {
+    gamefield[x][y] = 10;
+    img.src = images.questionmark;
+    img.alt = "empty";
+  }
+}
+
+function revealField(x, y) {
+	if (checkOutOfBounds(x, y)) {
+		return;
+	}
+
+	// already revealed
+	if (gamefield[x][y] != 10) {
+		return;
+	}
+
+	gamefield[x][y] = field[x][y];
+
+	// If it's a 0, recursively reveal neighboring cells
+	if (field[x][y] === 0) {
+		revealField(x + 1, y);
+		revealField(x - 1, y);
+		revealField(x, y + 1);
+		revealField(x, y - 1);
+		revealField(x-1,y-1);
+		revealField(x+1,y-1);
+		revealField(x-1,y+1);
+		revealField(x+1,y+1);
+	}
+
+	// Always reload the field at the end so the UI updates!
+	reloadField();
+}
+
+function reloadField() {
+	for (let x = 0; x < fieldsize; x++) {
+		for (let y = 0; y < fieldsize; y++) {
+			let value = gamefield[x][y];
+
+			const buttonIndex = x * fieldsize + y;
+			const button = board.children[buttonIndex];
+
+			if (!button) continue;
+
 			const img = button.querySelector("img");
-			img.src = images.bomb;
-			img.alt = "bomb";
-		} else if (value === 9) {
-			gamefield[x - 1][y - 1] = 0;
-			const img = button.querySelector("img");
-            img.src = images.questionmark;
-            img.alt = "empty";
-		} else {}	
-	} else {	// reveal field regardless
-		if (reveal === 0) {
-			gamefield[x - 1][y - 1] = 10;
-			const img = button.querySelector("img");
-			img.src = images.free;
-			img.alt = "save";
-		} else if (reveal === 9) {
-			gamefield[x - 1][y - 1] = 9;
-			const img = button.querySelector("img");
-      		img.src = images.bomb;
-      		img.alt = "bomb";
-		} else {
+
+			if (value === 9) {
+				img.src = images.bomb;
+				img.alt = "bomb";
+			} else if (value === 0) {
+				img.src = images.free;
+				img.alt = "safe";
+			} else if (value === 10) {
+				img.src = images.questionmark;
+				img.alt = "empty";
+			} else if (value >= 1 && value <= 8) {
+                button.innerText = value;
+            }
 		}
 	}
 	checkIfDone();
 }
 
 function checkIfDone() {
-	const unfinished = gamefield.some((row) => row.includes(0));
+	const unfinished = gamefield.some((row) => row.includes(10));
 
 	if (!unfinished) {
 		window.location.href = "../result_pages/win.html";
