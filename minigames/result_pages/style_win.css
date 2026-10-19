@@ -212,14 +212,39 @@ body {
     }
 }
 
-.win-text {
+.box-with-shadow {
+    box-sizing: border-box;
+    height: max-content;
+    padding: 0px 10px;
+    border: 5px solid #C3423F;
+    box-shadow: 6px 6px 0px grey;
+    width: 90%;
     height: max-content;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    flex-direction: column;
+    padding: 20px;
+    
+    .win-text {
+        height: max-content;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
 
-    font-size: xx-large; 
+        font-size: xx-large;
+    }
+
+    .again-button,
+    .again-button:link,
+    .again-button:visited {
+        width: 90%;
+        height: min-content;
+        padding: 6px 14px;
+        font-size: 20px !important;
+        display: inline-block;
+    }
 }
 
 .homemenu {

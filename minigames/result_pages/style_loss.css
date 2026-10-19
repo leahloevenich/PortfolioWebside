@@ -82,6 +82,38 @@ body {
     background-color: #F5F5DC;
     border: 7px solid #C3423F;
     box-shadow: 6px 6px 0px #4E1918;
+
+    padding-bottom: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    a:link,
+    a:visited {
+        width: 100%;
+        background-color: #C3423F;
+        color: white;
+        padding: 14px 25px;
+        text-align: center;
+        text-decoration: none;
+        font-size: xx-large;
+        display: inline-block;
+        box-shadow: 6px 6px 0px #333333;
+    }
+
+    a:hover,
+    a:active {
+        background-color: #4E1918;
+    }
+
+    img {
+        width: 180px;
+        -webkit-animation: breathing 5s ease-out infinite normal;
+        animation: breathing 5s ease-out infinite normal;
+        color: #fff;
+        -webkit-font-smoothing: antialiased;
+    }
 }
 
 .heading {
@@ -111,7 +143,7 @@ body {
         margin: 0;
 
         animation:
-            typing 1s steps(19, end) forwards,
+            typing 1s steps(12, end) forwards,
             blinking 1s steps(1, end) infinite;
     }
 }
@@ -128,64 +160,150 @@ body {
     }
 
     to {
-        width: 7ch;
+        width: 12ch;
     }
 }
 
-.whole-grid {
-    box-sizing: border-box;
-    min-height: 100%;
-    padding: 0px 24px 34px 24px;
-
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-
-    .status {
-        padding: 0px;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-
-        img {
-            width: 100%;
-            height: auto;
-        }
+@-webkit-keyframes breathing {
+    0% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
     }
 
-    .game {
-        padding: 0px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
+    25% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    60% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+
+    100% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
     }
 }
 
+@keyframes breathing {
+    0% {
+        -webkit-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        transform: scale(0.9);
+    }
 
-a:link,
-a:visited {
-    width: 100%;
-    background-color: #C3423F;
-    color: white;
-    padding: 14px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    box-shadow: 6px 6px 0px #333333;
-}
+    25% {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
 
-a:hover,
-a:active {
-    background-color: #4E1918;
+    60% {
+        -webkit-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+
+    100% {
+        -webkit-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        transform: scale(0.9);
+    }
 }
 
 .box-with-shadow {
+    box-sizing: border-box;
+    height: max-content;
+    padding: 0px 10px;
+    border: 5px solid #C3423F;
+    box-shadow: 6px 6px 0px grey;
+    width: 90%;
     height: max-content;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 10px;
-    border: 3px solid;
-    box-shadow: 6px 6px 0px grey;
+    flex-direction: column;
+    padding: 20px;
+
+    .win-text {
+        height: max-content;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+
+        font-size: xx-large;
+    }
+
+    .again-button,
+    .again-button:link,
+    .again-button:visited {
+        width: 90%;
+        height: min-content;
+        padding: 6px 14px;
+        font-size: 20px !important;
+        display: inline-block;
+    }
+}
+
+.homemenu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 5px;
+    color: white;
+    background-color: black;
+    border: 3px solid white;
+
+    display: flex;
+    justify-content: center;
+
+    span {
+        font-size: 20px;
+    }
+
+    .image-button {
+        display: inline-block;
+        /* Allows width/height styling if needed */
+        border: none;
+        background: none;
+        padding: 0;
+        margin: 0;
+        text-decoration: none;
+        /* Removes underline from link */
+    }
+
+    .image-button img {
+        display: block;
+        /* Removes any bottom spacing gap under inline images */
+        border: none;
+        width: auto;
+        /* Optional: Set your desired width */
+        height: 20px;
+        /* Maintains aspect ratio */
+    }
+
+    /* Optional hover/active effects */
+    .image-button:hover {
+        opacity: 0.8;
+        /* Slight fade effect when hovered */
+    }
+
+    .image-button:active {
+        opacity: 0.6;
+        /* Slight press effect */
+    }
+
+    a:link,
+    a:visited {
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+    }
+
+    a:hover,
+    a:active {
+        color: #4E1918;
+    }
 }

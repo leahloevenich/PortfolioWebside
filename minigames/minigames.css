@@ -201,6 +201,12 @@ body {
                     grid-template-columns: repeat(2, 1fr);
                     gap: 20px;
                 }
+
+                .three-buttons {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 20px;
+                }
             }
         }
     }
