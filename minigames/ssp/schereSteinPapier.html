@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leah Lövenich</title>
     <link rel="stylesheet" href="style_ssp.css">
+    <link rel="stylesheet" href="../../global.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +15,7 @@
     <div class="whole-box">
         <div class="heading">
             <div class="ws-heading">Leah Marie Lövenich presents...</div>
-            <div class="banner">Rock, paper, scissors</div>
+            <div class="banner" style="--steps: 21; --duration: 2s;">Rock, paper, scissors</div>
         </div>
 
         <div class="whole-grid">
@@ -28,21 +29,21 @@
                     <span id = "computerPoints">0</span>
                 </div>
                 <div class="gamedata">
-                    <p>Computers choice:   <span id = "computer">...loading...</span></p>
+                    <p>Computers choice: <span id = "computer">...loading...</span></p>
                 </div>
             </div>
 
             <div class="game">
                 <button class="imagebuttonGame" onclick="scissorClicked()">
-                    <img src="../../images/minigames/ssp/ssp_scissor.png" alt="Icon">
+                    <img src="../../images/minigames/ssp/scissor.png" alt="Icon">
                 </button>
 
                 <button class="imagebuttonGame" onclick="rockClicked()">
-                    <img src="../../images/minigames/ssp/ssp_rock.png" alt="Icon">
+                    <img src="../../images/minigames/ssp/rock.png" alt="Icon">
                 </button>
             
                 <button class="imagebuttonGame" onclick="paperClicked()">
-                    <img src="../../images/minigames/ssp/ssp_paper.png" alt="Icon">
+                    <img src="../../images/minigames/ssp/paper.png" alt="Icon">
                 </button>
             </div>
         </div>
@@ -57,8 +58,6 @@
         <span> | </span>
         <a href="../../datenschutz.html" class="home-link">DATENSCHUTZ</a>
     </div>
-
-        
 
     <script src="schereSteinPapier.js"></script>
 </body>

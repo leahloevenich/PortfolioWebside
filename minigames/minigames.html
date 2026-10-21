@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leah Lövenich</title>
     <link rel="stylesheet" href="minigames.css">
+    <link rel="stylesheet" href="../global.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!--<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols:wght@100..900&family=VT323&display=swap" rel="stylesheet">-->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="whole-box">
         <div class="heading">
             <div class="ws-heading">Leah Marie Lövenich presents...</div>
-            <div class="banner">Choose your Minigame:</div>
+            <div class="banner" style="--steps: 21; --duration: 2s;">Choose your Minigame:</div>
         </div>
 
         <div class="whole-grid">
@@ -24,7 +24,7 @@
                 <div class="data">
                     Hangman is a classic two-player word-guessing game where one player tries to uncover a hidden word or phrase before a stick figure drawing is completed.
                     In this version, you will play against a computer (PvC)!
-                    <div class="buttom">
+                    <div class="bottom">
                         <a href="../minigames/hangman/hangman.html" class="button">Let's play!</a>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                 <div class="data">
                     Rock Paper Scissors is a fast, two-player hand game where players simultaneously form one of three hand shapes to beat their opponent's choice.
                     In this version, you will play against a computer (PvC)!
-                    <div class="buttom">
+                    <div class="bottom">
                         <a href="../minigames/ssp/schereSteinPapier.html" class="button">Let's play!</a>
                     </div>
                     
@@ -47,7 +47,7 @@
                     The goal is to place flowers on safe fields: Some tiles indicate the number of nearby stools!
 
                     You will start with an empty game, like in the classic version of minesweeper.
-                    <div class="buttom">
+                    <div class="bottom">
                         <div class="two-buttons">
                             <a href="../minigames/minesweeper/minesweeper.html?size=9" class="button">Play easy mode!</a>
                             <a href="../minigames/minesweeper/minesweeper.html?size=16" class="button">Play medium mode!</a>
@@ -62,7 +62,7 @@
                     The goal is to place flowers on safe fields: Some tiles indicate the number of nearby stools!
 
                     This version differs from the classic minesweeper game: The gamefield will present all "number tiles".
-                    <div class="buttom">
+                    <div class="bottom">
                         <div class="two-buttons">
                             <a href="../minigames/minesweeper_easy/minesweeper_easy.html?size=9" class="button">Play easy mode!</a>
                             <a href="../minigames/minesweeper_easy/minesweeper_easy.html?size=16" class="button">Play medium mode!</a>
@@ -75,7 +75,7 @@
                 <div class="data">
                     Snake is a classic action video game where you guide a growing line (the snake) across a grid or arena to eat food, get longer, and avoid crashing into walls or your own body.
                     Change the snakes direction by using the arrow-buttons on you keyboard or the displayed buttons!
-                    <div class="buttom">
+                    <div class="bottom">
                         <div class="three-buttons">
                             <a href="../minigames/snake/snake.html?time=900" class="button">Play easy mode!</a>
                             <a href="../minigames/snake/snake.html?time=600" class="button">Play medium mode!</a>
@@ -88,7 +88,12 @@
                 <div class="title">Homepage</div>
                 <div class="data">
                     Aleady explored and played everything? Go back to the main menu!
-                    <a href="../index.html">Done playing?</a>
+                    <div class="bottom">
+                        <div class="two-buttons">
+                            <a href="../index.html">Done playing?</a>
+                            <a href="../index.html">Choose random game!</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

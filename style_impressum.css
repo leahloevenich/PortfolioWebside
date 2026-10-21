@@ -1,0 +1,35 @@
+.whole-grid {
+    box-sizing: border-box;
+    min-height: 100%;
+    padding: 0px 24px 34px 24px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+
+    .box-with-shadow {
+        box-sizing: border-box;
+        height: max-content;
+        padding: 0px 10px;
+        border: 3px solid;
+        box-shadow: 6px 6px 0px grey;
+
+        h2 {
+            text-shadow: 3px 3px 0px #CF6563;
+            text-transform: uppercase;
+        }
+    }
+
+    a:link,
+    a:visited {
+        width: 100%;
+        color: #4E1918;
+        padding-left: 5px;
+        text-align: left;
+        text-decoration: underline;
+    }
+
+    a:hover,
+    a:active {
+        color: #C3423F;
+    }
+}

@@ -1,14 +1,10 @@
-/*
- *
- *      hier die spiellogik
- *
- */
-
+// field entries:
 // 0: save
 // 1-8: number of bombs
 // 9: bomb
 // 10: not revealed yet
 
+// fieldsizes:
 // Easy (Beginner): 9 × 9 grid with 10 bombs
 // Medium (Intermediate): 16 × 16 grid with 40 bombs
 // Hard / Expert: 30 × 16 grid with 99 bombs
@@ -18,7 +14,7 @@
  */
 
 const urlParams = new URLSearchParams(window.location.search);
-const fieldsize = parseInt(urlParams.get("size")) || 9; // Defaults to 9 if none is provided
+const fieldsize = parseInt(urlParams.get("size")) || 9;
 
 let numberBombs = 0;
 const field = [];
@@ -30,8 +26,8 @@ const buttons = document.querySelectorAll(".toggle-btn");
 const board = document.getElementById("board");
 
 const images = {
-	free: "../../images/minigames/minesweeper/safe.png",
-	questionmark: "../../images/minigames/minesweeper/empty.png",
+	free: "../../images/minigames/minesweeper/pressed.png",
+	questionmark: "../../images/minigames/minesweeper/notpressed2.png",
 	bomb: "../../images/minigames/minesweeper/bomb.png",
 };
 
@@ -93,7 +89,7 @@ function prepareGame() {
 }
 
 function createButtons() {
-  board.style.gridTemplateColumns = `repeat(${fieldsize}, 50px)`;
+  	board.style.gridTemplateColumns = `repeat(${fieldsize}, 50px)`;
 
 	for (let x = 0; x < fieldsize; x++) {
 			for (let y = 0; y < fieldsize; y++) {
@@ -102,8 +98,7 @@ function createButtons() {
 			const img = document.createElement("img");
 			img.src = images.questionmark;
 			img.alt = "empty";
-			img.style.width = "30px";
-			img.style.height = "30px";
+			img.classList.add("board-image");
 			button.appendChild(img);
 
 			// Left-click handler
@@ -163,22 +158,18 @@ function handleClick(x, y, button) {
 }
 
 function handleRightClick(x, y, button) {
-  // 1. Get the image element from the button
-  const img = button.querySelector("img");
-  if (!img) return;
+	const img = button.querySelector("img");
+	if (!img) return;
 
-  // 2. If the cell is unrevealed (10), flag it as a bomb/questionmark
-  if (gamefield[x][y] === 10) {
-    gamefield[x][y] = 11; // 11 can represent a flagged cell
-    img.src = images.bomb; // (Or a flag image if you have one)
-    img.alt = "bomb";
-  }
-  // 3. If it's already flagged (11), unflag it back to hidden (10)
-  else if (gamefield[x][y] === 11) {
-    gamefield[x][y] = 10;
-    img.src = images.questionmark;
-    img.alt = "empty";
-  }
+	if (gamefield[x][y] === 10) {
+		gamefield[x][y] = 9;
+		img.src = images.bomb;
+		img.alt = "bomb";
+	} else if (gamefield[x][y] === 9) {
+		gamefield[x][y] = 10;
+		img.src = images.questionmark;
+		img.alt = "empty";
+	}
 }
 
 function revealField(x, y) {
@@ -193,7 +184,7 @@ function revealField(x, y) {
 
 	gamefield[x][y] = field[x][y];
 
-	// If it's a 0, recursively reveal neighboring cells
+	// recursively reveal neighboring cells
 	if (field[x][y] === 0) {
 		revealField(x + 1, y);
 		revealField(x - 1, y);
@@ -205,7 +196,6 @@ function revealField(x, y) {
 		revealField(x+1,y+1);
 	}
 
-	// Always reload the field at the end so the UI updates!
 	reloadField();
 }
 
