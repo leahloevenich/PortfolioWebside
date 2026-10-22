@@ -2,32 +2,30 @@
     box-sizing: border-box;
     min-height: 100%;
     padding: 0px 24px 34px 24px;
+    display: flex;
+    flex-direction: column;
     gap: 20px;
 
-    .box-with-shadow {
-        height: max-content;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-        border: 3px solid;
-        box-shadow: 6px 6px 0px grey;
-    }
+    .three-buttons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
 
-    a:link,
-    a:visited {
-        width: 100%;
-        background-color: #C3423F;
-        color: white;
-        padding: 14px 25px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        box-shadow: 6px 6px 0px #333333;
-    }
-
-    a:hover,
-    a:active {
-        background-color: #C3423F;
+        a:link,
+        a:visited {
+            width: 100%;
+            background-color: #C3423F;
+            color: white;
+            padding: 14px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 6px 6px 0px #333333;
+        }
+    
+        a:hover,
+        a:active {
+            background-color: var(--main-darker-red);
+        }
     }
 }

@@ -80,12 +80,12 @@
 
     .card:nth-child(1) {
         .title {
-            border-color: var(--box-purple-top-bd);
-            background-color: var(--box-purple-top-bg);
+            border-color: var(--box-purple-dark);
+            background-color: var(--box-purple-mid);
         }
         .data {
-            border-color: var(--box-purple-bottom-bd);
-            background-color: var(--box-purple-bottom-bg);
+            border-color: var(--box-purple-mid);
+            background-color: var(--box-purple-light);
             text-align: center;
 
             .portrait-box {
@@ -95,10 +95,10 @@
                 justify-content: flex-start;
                 gap: 10px;
 
-                background-color: var(--box-purple-top-bg);
+                background-color: var(--box-purple-mid);
                 padding: 5px;
-                border: 3px solid var(--box-purple-top-bd);
-                box-shadow: 6px 6px 0px #333333;
+                border: 3px solid var(--box-purple-dark);
+                box-shadow: 6px 6px 0px var(--dark-grey);
 
                 .portrait {
                     height: 100%;
@@ -137,13 +137,13 @@
 
     .card:nth-child(2) {
         .title {
-            border-color: var(--box-green-top-bd);
-            background-color: var(--box-green-top-bg);
+            border-color: var(--box-green-dark);
+            background-color: var(--box-green-mid);
         }
 
         .data {
-            border-color: var(--box-green-bottom-bd);
-            background-color: var(--box-green-bottom-bg);
+            border-color: var(--box-green-mid);
+            background-color: var(--box-green-light);
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
@@ -154,27 +154,27 @@
                 height: max-content;
                 display: inline-block;
                 padding: 2px 10px;
-                background-color: var(--box-green-top-bd);
+                background-color: var(--box-green-dark);
                 box-shadow: 6px 6px 0px grey;
                 text-decoration: none;
                 color: black;
             }
         
             .button-link:hover {
-                background-color: var(--box-green-top-bg);
+                background-color: var(--box-green-mid);
             }
         }
     }
 
     .card:nth-child(3) {
         .title {
-            border-color: var(--box-orange-top-bd);
-            background-color: var(--box-orange-top-bg);
+            border-color: var(--box-orange-dark);
+            background-color: var(--box-orange-mid);
         }
 
         .data {
-            border-color: var(--box-orange-bottom-bd);
-            background-color: var(--box-orange-bottom-bg);
+            border-color: var(--box-orange-mid);
+            background-color: var(--box-orange-light);
 
             box-sizing: border-box;
             display: flex;
@@ -194,10 +194,9 @@
                 img {
                     height: 50px;
                     width: 50px;
-                        object-fit: contain;
-                            /* keeps the aspect ratio, no distortion */
-                            flex-shrink: 0;
-                            image-rendering: pixelated;
+                    object-fit: contain;
+                    flex-shrink: 0;
+                    image-rendering: pixelated;
                 }
 
                 .description {
@@ -216,13 +215,13 @@
 
     .card:nth-child(4) {
         .title {
-            border-color: var(--box-brown-top-bd);
-            background-color: var(--box-brown-top-bg);
+            border-color: var(--box-peach-dark);
+            background-color: var(--box-peach-mid);
         }
 
         .data {
-            border-color: var(--box-brown-bottom-bd);
-            background-color: var(--box-brown-bottom-bg);
+            border-color: var(--box-peach-mid);
+            background-color: var(--box-peach-light);
 
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -232,13 +231,13 @@
 
     .card:nth-child(5) {
         .title {
-            border-color: var(--box-blue-top-bd);
-            background-color: var(--box-blue-top-bg);
+            border-color: var(--box-blue-dark);
+            background-color: var(--box-blue-mid);
         }
 
         .data {
-            border-color: var(--box-blue-bottom-bd);
-            background-color: var(--box-blue-bottom-bg);
+            border-color: var(--box-blue-mid);
+            background-color: var(--box-blue-light);
 
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -248,17 +247,41 @@
 
     .card:nth-child(6) {
         .title {
-            border-color: var(--box-blue-top-bd);
-            background-color: var(--box-blue-top-bg);
+            border-color: var(--box-sage-dark);
+            background-color: var(--box-sage-mid);
         }
 
         .data {
-            border-color: var(--box-blue-bottom-bd);
-            background-color: var(--box-blue-bottom-bg);
+            border-color: var(--box-sage-mid);
+            background-color: var(--box-sage-light);
 
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             align-content: start;
+        }
+    }
+
+    .card:nth-child(7) {
+        .title {
+            border-color: var(--box-darkorange-dark);
+            background-color: var(--box-darkorange-mid);
+        }
+
+        .data {
+            border-color: var(--box-darkorange-mid);
+            background-color: var(--box-darkorange-light);
+        }
+    }
+
+    .card:nth-child(8) {
+        .title {
+            border-color: var(--box-grape-dark);
+            background-color: var(--box-grape-mid);
+        }
+
+        .data {
+            border-color: var(--box-grape-mid);
+            background-color: var(--box-grape-light);
         }
     }
 }
