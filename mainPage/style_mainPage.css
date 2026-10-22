@@ -57,6 +57,7 @@
                 border: 3px solid grey;
                 padding: 3px;
                 width: 100%;
+                margin-top: auto;
 
                 height: max-content;
                 display: flex;
@@ -71,8 +72,13 @@
 
                 .subcard-title {
                     font-size: larger;
+                    text-decoration: underline;
                     font-weight: bold;
                     color: black;
+                }
+
+                .subcard-data {
+                    width: 100%;
                 }
             }
         }
@@ -270,6 +276,11 @@
         .data {
             border-color: var(--box-darkorange-mid);
             background-color: var(--box-darkorange-light);
+
+            .subcard-stats {
+                border-color: var(--box-darkorange-dark);
+                background-color: var(--box-darkorange-mid);
+            }
         }
     }
 
@@ -282,6 +293,11 @@
         .data {
             border-color: var(--box-grape-mid);
             background-color: var(--box-grape-light);
+
+            .subcard-stats {
+                border-color: var(--box-grape-dark);
+                background-color: var(--box-grape-mid);
+            }
         }
     }
 }
