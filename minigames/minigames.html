@@ -14,7 +14,7 @@
 <body>
     <div class="whole-box">
         <div class="heading">
-            <div class="ws-heading">Leah Marie Lövenich presents...</div>
+            <div class="ws-heading">Leah Marie Lövenich</div>
             <div class="banner" style="--steps: 21; --duration: 2s;">Choose your Minigame:</div>
         </div>
 
@@ -28,7 +28,7 @@
                     Hangman is a classic two-player word-guessing game where one player tries to uncover a hidden word or phrase before a stick figure drawing is completed.
                     In this version, you will play against a computer (PvC)!
                     <div class="bottom">
-                        <a href="../minigames/hangman/hangman.html" class="button">Let's play!</a>
+                        <a href="../minigames/hangman/hangman.html" class="button-with-shadow">Let's play!</a>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                     Rock Paper Scissors is a fast, two-player hand game where players simultaneously form one of three hand shapes to beat their opponent's choice.
                     In this version, you will play against a computer (PvC)!
                     <div class="bottom">
-                        <a href="../minigames/ssp/schereSteinPapier.html" class="button">Let's play!</a>
+                        <a href="../minigames/ssp/schereSteinPapier.html" class="button-with-shadow">Let's play!</a>
                     </div>
                     
                 </div>
@@ -52,8 +52,8 @@
                     You will start with an empty game, like in the classic version of minesweeper.
                     <div class="bottom">
                         <div class="two-buttons">
-                            <a href="../minigames/minesweeper/minesweeper.html?size=9" class="button">Play easy mode!</a>
-                            <a href="../minigames/minesweeper/minesweeper.html?size=16" class="button">Play medium mode!</a>
+                            <a href="../minigames/minesweeper/minesweeper.html?size=9" class="button-with-shadow">Play easy mode!</a>
+                            <a href="../minigames/minesweeper/minesweeper.html?size=16" class="button-with-shadow">Play medium mode!</a>
                         </div>
                     </div>
                 </div>
@@ -67,8 +67,8 @@
                     This version differs from the classic minesweeper game: The gamefield will present all "number tiles".
                     <div class="bottom">
                         <div class="two-buttons">
-                            <a href="../minigames/minesweeper_easy/minesweeper_easy.html?size=9" class="button">Play easy mode!</a>
-                            <a href="../minigames/minesweeper_easy/minesweeper_easy.html?size=16" class="button">Play medium mode!</a>
+                            <a href="../minigames/minesweeper_easy/minesweeper_easy.html?size=9" class="button-with-shadow">Play easy mode!</a>
+                            <a href="../minigames/minesweeper_easy/minesweeper_easy.html?size=16" class="button-with-shadow">Play medium mode!</a>
                         </div>
                     </div>
                 </div>
@@ -80,9 +80,9 @@
                     Change the snakes direction by using the arrow-buttons on you keyboard or the displayed buttons!
                     <div class="bottom">
                         <div class="three-buttons">
-                            <a href="../minigames/snake/snake.html?time=900" class="button">Play easy mode!</a>
-                            <a href="../minigames/snake/snake.html?time=600" class="button">Play medium mode!</a>
-                            <a href="../minigames/snake/snake.html?time=410" class="button">Play hard mode!</a>
+                            <a href="../minigames/snake/snake.html?time=900" class="button-with-shadow">Play easy mode!</a>
+                            <a href="../minigames/snake/snake.html?time=600" class="button-with-shadow">Play medium mode!</a>
+                            <a href="../minigames/snake/snake.html?time=410" class="button-with-shadow">Play hard mode!</a>
                         </div>
                     </div>                    
                 </div>
@@ -93,8 +93,8 @@
                     Aleady explored and played everything? Go back to the main menu!
                     <div class="bottom">
                         <div class="two-buttons">
-                            <a href="../index.html">Done playing?</a>
-                            <a href="../index.html">Choose random game!</a>
+                            <a href="../index.html" class="button-with-shadow">Done playing?</a>
+                            <button type="button" id="random-game" class="button-with-shadow">Choose random game!</button>
                         </div>
                     </div>
                 </div>
@@ -112,7 +112,26 @@
         <a href="../datenschutz.html" class="home-link">DATENSCHUTZ</a>
     </div>
 
-    <script src="main.js"></script>
-        
+    <script>
+        const games = [
+            "../minigames/hangman/hangman.html",
+            "../minigames/ssp/schereSteinPapier.html",
+            "../minigames/minesweeper/minesweeper.html?size=9",
+            "../minigames/minesweeper/minesweeper.html?size=16",
+            "../minigames/minesweeper_easy/minesweeper_easy.html?size=9",
+            "../minigames/minesweeper_easy/minesweeper_easy.html?size=16",
+            "../minigames/snake/snake.html?time=900",
+            "../minigames/snake/snake.html?time=600",
+            "../minigames/snake/snake.html?time=410"
+        ];
+
+        function randomGame() {
+            const pick = games[Math.floor(Math.random() * games.length)];
+            window.location.href = pick;
+        }
+
+        document.getElementById("random-game")
+            .addEventListener("click", randomGame);
+    </script>
     </body>
 </html>

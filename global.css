@@ -6,6 +6,7 @@
 :root {
     --main-red: #C3423F;
     --main-darker-red: #4E1918;
+    --main-lighter-red: #de8e8c;
     --background-color: #F5F5DC;
     --dark-grey: #333333;
     --light-grey: grey;
@@ -155,4 +156,52 @@ body {
     a:active {
         color: #4E1918;
     }
+}
+
+.box-with-shadow {
+    height: max-content;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: var(--dark, var(--main-red));
+    background-color: var(--mid, var(--main-red));
+    box-shadow: 6px 6px 0px var(--light-grey);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.box-with-shadow:hover {
+    transform: translate(6px, 6px);
+    box-shadow: 0px 0px 0px var(--light-grey);
+}
+
+.button-with-shadow {
+    height: max-content;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 10px;
+    background-color: var(--mid, var(--main-lighter-red));
+    box-shadow: 6px 6px 0px var(--light-grey);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+
+    font-family: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    cursor: inherit;
+    border: none;
+}
+
+.button-with-shadow:hover {
+    transform: translate(6px, 6px);
+    box-shadow: 0px 0px 0px var(--light-grey);
 }
