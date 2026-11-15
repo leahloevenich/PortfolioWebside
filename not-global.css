@@ -1,0 +1,223 @@
+/* not-global.css */
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --main-red: #C3423F;
+    --main-darker-red: #4E1918;
+    --main-lighter-red: #de8e8c;
+    --background-color: #F5F5DC;
+    --dark-grey: #333333;
+    --light-grey: grey;
+
+    --hue-1: 270;   /* purple */
+    --hue-2: 140;   /* green */
+    --hue-3: 30;    /* orange */
+    --hue-4: 20;    /* peach */
+    --hue-5: 210;   /* blue */
+    --hue-6: 100;   /* sage */
+    --hue-7: 50;    /* darkorange */
+    --hue-8: 320;   /* grape */
+
+    --l-dark: 40%;
+    --c-dark: 0.12;
+    --l-mid: 72%;
+    --c-mid: 0.12;
+    --l-light: 92%;
+    --c-light: 0.05;
+}
+
+html,
+body {
+    margin: 0;
+}
+
+body {
+    margin: 0 auto;
+    max-width: 1000px;
+    height: 100%;
+    font-family: "VT323", monospace;
+    font-weight: 400;
+    font-style: normal;
+    box-sizing: border-box;
+
+    padding: 50px 0px;
+
+    background-image: url('images/bg2.png');
+    background-size: auto;
+    background-repeat: repeat;
+    cursor: url('images/star.png'), pointer;
+}
+
+.whole-box {
+    background-color: var(--background-color);
+    border: 7px solid var(--main-red);
+    box-shadow: 6px 6px 0px var(--main-darker-red);
+}
+
+.heading {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    .ws-heading {
+        font-size: xx-large;
+    }
+
+    .banner {
+        width: min-content;
+        font-family: 'Press Start 2P', cursive;
+        font-size: 40px;
+        text-shadow: 3px 3px 0px #CF6563;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 5px solid black;
+        display: inline-block;
+        margin: 0;
+
+        --steps: 10;
+        --duration: 2s;
+
+        animation:
+            typing var(--duration) steps(var(--steps), end) forwards,
+            blinking 1s steps(1, end) infinite;
+    }
+}
+
+@keyframes blinking {
+    50% {
+        border-right-color: transparent;
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: calc(var(--steps) * 1ch);
+    }
+}
+
+.box-with-shadow {
+    height: min-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    gap: 10px;
+    border: 3px solid var(--main-darker-red);
+    background-color: var(--main-lighter-red);
+    box-shadow: 6px 6px 0px var(--light-grey);
+}
+
+.box-with-shadow h2 {
+    margin-bottom: 8px;
+}
+
+.box-with-shadow p {
+    margin: 0;
+}
+
+a:link,
+a:visited {
+    width: 100%;
+    color: #4E1918;
+    padding-left: 5px;
+    text-align: left;
+    text-decoration: underline;
+}
+
+a:hover,
+a:active {
+    color: #C3423F;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    background-image: url("images/two_arrows.png");
+    background-repeat: no-repeat;
+    background-position: left 2px;
+    background-size: 16px 16px;
+
+    padding-left: 24px;
+    margin-bottom: 8px;
+}
+
+
+
+
+
+
+
+.homemenu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 5px;
+    color: white;
+    background-color: black;
+    border: 3px solid white;
+
+    display: flex;
+    justify-content: center;
+
+    span {
+        font-size: 20px;
+    }
+
+    .image-button {
+        display: inline-block;
+        border: none;
+        background: none;
+        padding: 0;
+        margin: 0;
+        text-decoration: none;
+    }
+
+    .image-button img {
+        display: block;
+        border: none;
+        width: auto;
+        height: 20px;
+    }
+
+    .image-button:hover {
+        opacity: 0.8;
+    }
+
+    .image-button:active {
+        opacity: 0.6;
+    }
+
+    a:link,
+    a:visited,
+    .lang-btn {
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+        font-family: inherit;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0px 5px;
+        margin: 0;
+    }
+
+    a:hover,
+    a:active,
+    .lang-btn:hover {
+        color: var(--main-darker-red);
+    }
+}

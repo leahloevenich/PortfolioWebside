@@ -30,22 +30,86 @@ const images = {
 	questionmark: "../../images/minigames/minesweeper/notpressed2.png",
 	bomb: "../../images/minigames/minesweeper/bomb.png",
 };
+const loadedImages = {};
 
-if (fieldsize === 16) {
-	numberBombs = 40;
-} else if (fieldsize === 9) {
-	numberBombs = 10;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Funktion zum Vorabladen aller Bilder
+function preloadImages(callback) {
+	let totalImages = Object.keys(images).length;
+	let loadedCount = 0;
+
+    for (const key in images) {
+		const path = images[key];
+		const img = new Image();
+		
+		img.src = path;
+		
+		// Wenn das Bild erfolgreich geladen wurde
+		img.onload = () => {
+			loadedCount++;
+			if (loadedCount === totalImages && typeof callback === "function") {
+			callback();
+			}
+		};
+		
+		img.onerror = () => {
+			console.error(`Fehler beim Laden des Bildes: ${path}`);
+			loadedCount++;
+			if (loadedCount === totalImages && typeof callback === "function") {
+			callback();
+			}
+		};
+
+		loadedImages[key] = img;
+    }
 }
 
-document.getElementById("numberBombs").innerText = numberBombs;
-document.getElementById("fieldsize").innerText = fieldsize;
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
- *	prepare game
+ *  game
  */
-prepareField();
-prepareGame();
-createButtons();
+preloadImages(() => {
+    console.log("Alle Bilder erfolgreich geladen! Das Spiel kann starten.");
+
+	if (fieldsize === 16) {
+		numberBombs = 40;
+	} else if (fieldsize === 9) {
+		numberBombs = 10;
+	}
+
+	document.getElementById("numberBombs").innerText = numberBombs;
+	document.getElementById("fieldsize").innerText = fieldsize;
+
+	prepareField();
+	prepareGame();
+	createButtons();
+});
+
 
 /*
  *
@@ -92,11 +156,11 @@ function createButtons() {
   	board.style.gridTemplateColumns = `repeat(${fieldsize}, 50px)`;
 
 	for (let x = 0; x < fieldsize; x++) {
-			for (let y = 0; y < fieldsize; y++) {
+		for (let y = 0; y < fieldsize; y++) {
 			const button = document.createElement("button");
 
 			const img = document.createElement("img");
-			img.src = images.questionmark;
+			img.src = loadedImages.questionmark.src;
 			img.alt = "empty";
 			img.classList.add("board-image");
 			button.appendChild(img);
@@ -136,7 +200,7 @@ function checkOutOfBounds(x,y) {
 /*
  *	handle buttons
  */
-function handleClick(x, y, button) {
+function handleClick(x, y) {
 	const value = gamefield[x][y];
 	const reveal = field[x][y];
 	if (firstTry) {
@@ -163,13 +227,14 @@ function handleRightClick(x, y, button) {
 
 	if (gamefield[x][y] === 10) {
 		gamefield[x][y] = 9;
-		img.src = images.bomb;
+		img.src = loadedImages.bomb.src;
 		img.alt = "bomb";
 	} else if (gamefield[x][y] === 9) {
 		gamefield[x][y] = 10;
-		img.src = images.questionmark;
+		img.src = loadedImages.questionmark.src;
 		img.alt = "empty";
 	}
+	checkIfDone();
 }
 
 function revealField(x, y) {
@@ -186,10 +251,10 @@ function revealField(x, y) {
 
 	// recursively reveal neighboring cells
 	if (field[x][y] === 0) {
-		revealField(x + 1, y);
-		revealField(x - 1, y);
-		revealField(x, y + 1);
-		revealField(x, y - 1);
+		revealField(x+1,y);
+		revealField(x-1,y);
+		revealField(x,y+1);
+		revealField(x,y-1);
 		revealField(x-1,y-1);
 		revealField(x+1,y-1);
 		revealField(x-1,y+1);
@@ -212,13 +277,13 @@ function reloadField() {
 			const img = button.querySelector("img");
 
 			if (value === 9) {
-				img.src = images.bomb;
+				img.src = loadedImages.bomb.src;
 				img.alt = "bomb";
 			} else if (value === 0) {
-				img.src = images.free;
+				img.src = loadedImages.free.src;
 				img.alt = "safe";
 			} else if (value === 10) {
-				img.src = images.questionmark;
+				img.src = loadedImages.questionmark.src;
 				img.alt = "empty";
 			} else if (value >= 1 && value <= 8) {
                 button.innerText = value;

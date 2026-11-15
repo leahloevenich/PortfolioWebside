@@ -22,15 +22,15 @@
             <div class="gamefunctions">
                 <button class="toggle-btn" id="flower" aria-pressed="false">
                     <img src="../../images/minigames/minesweeper/safe.png" alt="" class="toggle-icon">
-                    <span class="toggle-label">Place flower</span>
+                    <span class="toggle-label" data-de="Blume platzieren" data-en="Place flower">Place flower</span>
                 </button>
                 <div class="gamestats">
-                    <p>Field size: <span id = "fieldsize">...loading...</span></p>
-                    <p>Number of bombs: <span id = "numberBombs">...loading...</span></p>
+                    <p><span data-de="Feldgröße: " data-en="Field size: ">Field size: </span><span id = "fieldsize" data-de="...lädt..." data-en="...loading...">...loading...</span></p>
+                    <p><span data-de="Anzahl an Bomben: " data-en="Number of bombs: ">Number of bombs: </span><span id = "numberBombs" data-de="...lädt..." data-en="...loading...">...loading...</span></p>
                 </div>
                 <button class="toggle-btn" id="stool" aria-pressed="false">
                     <img src="../../images/minigames/minesweeper/bomb.png" alt="" class="toggle-icon">
-                    <span class="toggle-label">Place stool</span>
+                    <span class="toggle-label" data-de="Kot platzieren" data-en="Place stool">Place stool</span>
                 </button>
             </div>
             <div id="board"></div>
@@ -46,8 +46,13 @@
         <a href="../../impressum.html" class="home-link">IMPRESSUM</a>
         <span> | </span>
         <a href="../../datenschutz.html" class="home-link">DATENSCHUTZ</a>
+        <span> | </span>
+        <button onclick="changeLanguage('de')" class="lang-btn">DE</button>
+        <span> | </span>
+        <button onclick="changeLanguage('en')" class="lang-btn">EN</button>
     </div>
 
     <script src="minesweeper_easy.js"></script>
+    <script src="../../lang.js"></script>
 </body>
 </html>

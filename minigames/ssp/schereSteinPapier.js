@@ -1,94 +1,51 @@
-/*
- *
- *      hier die spiellogik 
- * 
- */
+let computerPoints = 0;
+let playerPoints = 0;
 
-// 0: schere
-// 1: stein 
-// 2: papier
-computerPoints = 0;
-playerPoints = 0;
+const texts = {
+    scissor: { de: "Schere", en: "Scissor" },
+    rock:    { de: "Stein", en: "Rock" },
+    paper:   { de: "Papier", en: "Paper" },
+    win:     { de: "GEWONNEN", en: "WIN" },
+    loss:    { de: "VERLOREN", en: "LOSS" },
+    draw:    { de: "UNENTSCHIEDEN", en: "DRAW" }
+};
 
-function scissorClicked() {
-    console.log("You pressed scissor");
-    document.getElementById("player").innerText = "Scissor";
-    evalRound(0);
+const choices = ["scissor", "rock", "paper"];
+
+function getLang() {
+    const banner = document.querySelector(".banner");
+    return banner && banner.textContent.trim() === banner.dataset.de ? "de" : "en";
 }
 
-function rockClicked() {
-    console.log("You pressed rock");
-    document.getElementById("player").innerText = "Rock";
-    evalRound(1);
+function setText(id, key) {
+    const el = document.getElementById(id);
+    el.dataset.de = texts[key].de;
+    el.dataset.en = texts[key].en;
+    el.innerText = texts[key][getLang()] ?? texts[key].en;
 }
 
-function paperClicked() {
-    console.log("You pressed paper");
-    document.getElementById("player").innerText = "Paper";
-    evalRound(2);
-}
+function scissorClicked() { evalRound(0); }
+function rockClicked()    { evalRound(1); }
+function paperClicked()   { evalRound(2); }
 
 function evalRound(choice) {
-    let pcGuess = Math.floor(Math.random() * 3)
-    
-    switch (pcGuess) {
-        case 0: //pc scissor
-            document.getElementById("computer").innerText = "Scissor";
-            switch (choice) {
-                case 0: //player scissor
-                    document.getElementById("res").innerText = "DRAW";
-                    break;
-                case 1: //player rock
-                    document.getElementById("res").innerText = "WIN";
-                    playerPoints += 1;
-                    break;
-                case 2:
-                    document.getElementById("res").innerText = "LOSS";
-                    computerPoints += 1;
-                    break;
-                default:
-                    break;
-            }
-            break;
-        case 1: //PC rock
-            document.getElementById("computer").innerText = "Rock";
-            switch (choice) {
-                case 0:
-                    document.getElementById("res").innerText = "LOSS";
-                    computerPoints += 1;
-                    break;
-                case 1:
-                    document.getElementById("res").innerText = "DRAW";
-                    break;
-                case 2:
-                    document.getElementById("res").innerText = "WIN";
-                    playerPoints += 1;
-                    break;
-                default:
-                    break;
-            }
-            break;
-        case 2: //paper 
-            document.getElementById("computer").innerText = "Paper";
-            switch (choice) {
-                case 0: //scissor
-                    document.getElementById("res").innerText = "WIN";
-                    playerPoints += 1;
-                    break;
-                case 1: //rock
-                    document.getElementById("res").innerText = "LOSS";
-                    computerPoints += 1;
-                    break;
-                case 2: //paper
-                    document.getElementById("res").innerText = "DRAW";
-                    break;
-                default:
-                    break;
-            }
-            break;
-        default:
-            break;
+    const pcGuess = Math.floor(Math.random() * 3);
+
+    setText("player", choices[choice]);
+    setText("computer", choices[pcGuess]);
+
+    const result = (choice - pcGuess + 3) % 3;
+
+    if (result === 0) {
+        setText("res", "draw");
+    } else if (result === 1) {
+        setText("res", "win");
+        playerPoints++;
+    } else {
+        setText("res", "loss");
+        computerPoints++;
     }
+
     document.getElementById("playerPoints").innerText = playerPoints;
     document.getElementById("computerPoints").innerText = computerPoints;
 }

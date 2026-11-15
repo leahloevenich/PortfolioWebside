@@ -25,10 +25,10 @@
             
             <div class="game">
                 <div class="box-data">
-                    <h1><span id = "worddisplay">...lädt...</span></h1>
+                    <h1><span id = "worddisplay" data-de="...lädt..." data-en="...loading...">...loading...</span></h1>
                 </div>
                 <div class="box-data">
-                    <h2>Already guessed letters:</h2>
+                    <h2 data-de="Bereits geratene Buchstaben:" data-en="Already guessed letters:">Already guessed letters:</h2>
                     <p><span id = "guessedletters"></span></p>
                 </div>
                 
@@ -44,7 +44,12 @@
         <a href="../../impressum.html" class="home-link">IMPRESSUM</a>
         <span> | </span>
         <a href="../../datenschutz.html" class="home-link">DATENSCHUTZ</a>
+        <span> | </span>
+        <button onclick="changeLanguage('de')" class="lang-btn">DE</button>
+        <span> | </span>
+        <button onclick="changeLanguage('en')" class="lang-btn">EN</button>
     </div>
     <script src="hangman.js"></script>
+    <script src="../../lang.js"></script>
 </body>
 </html>

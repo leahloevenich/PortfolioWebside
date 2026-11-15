@@ -14,22 +14,22 @@
 <body>
     <div class="whole-box">
         <div class="heading">
-            <div class="ws-heading">Leah Marie Lövenich presents...</div>
-            <div class="banner" style="--steps: 21; --duration: 2s;">Rock, paper, scissors</div>
+            <div class="ws-heading">Leah Marie Lövenich</div>
+            <div class="banner" style="--steps: 21; --duration: 2s;" data-de="Schere, Stein, Papier" data-en="Rock, paper, scissors">Rock, paper, scissors</div>
         </div>
 
         <div class="whole-grid">
             <div class="lastgame">
                 <div class="gamedata">
-                    <p>Players choice: <span id = "player">...loading...</span></p>
+                    <p><span data-de="Players Wahl: " data-en="Players choice: ">Players choice: </span><span id = "player" data-de="...lädt..." data-en="...loading...">...loading...</span></p>
                 </div>
                 <div class="gamestats">
                     <span id = "playerPoints">0</span>
-                    <p><span id = "res">...loading...</span></p>
+                    <p><span id = "res" data-de="...lädt..." data-en="...loading...">...loading...</span></p>
                     <span id = "computerPoints">0</span>
                 </div>
                 <div class="gamedata">
-                    <p>Computers choice: <span id = "computer">...loading...</span></p>
+                    <p><span data-de="Computers Wahl: " data-en="Computers choice: ">Computers choice: </span><span id = "computer" data-de="...lädt..." data-en="...loading...">...loading...</span></p>
                 </div>
             </div>
 
@@ -57,8 +57,13 @@
         <a href="../../impressum.html" class="home-link">IMPRESSUM</a>
         <span> | </span>
         <a href="../../datenschutz.html" class="home-link">DATENSCHUTZ</a>
+        <span> | </span>
+        <button onclick="changeLanguage('de')" class="lang-btn">DE</button>
+        <span> | </span>
+        <button onclick="changeLanguage('en')" class="lang-btn">EN</button>
     </div>
 
     <script src="schereSteinPapier.js"></script>
+    <script src="../../lang.js"></script>
 </body>
 </html>

@@ -57,7 +57,7 @@ window.addEventListener('keydown', function(event) {
 function updateDisplay() {
     document.getElementById('hangman_visual').src = images[7-tries]
     document.getElementById('worddisplay').textContent = wordInGuessing.join("  ")
-    document.getElementById("guessedletters").textContent = guessedLetters.length === 0 ? "none!" : guessedLetters.join(", ");
+    document.getElementById("guessedletters").textContent = guessedLetters.length === 0 ? "..." : guessedLetters.join(", ");
 }
 
 // checks if the game should end.

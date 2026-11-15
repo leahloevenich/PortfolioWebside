@@ -51,15 +51,19 @@ const imagesButt = {
   left: "../../images/minigames/snake/butt_left.png",
   right: "../../images/minigames/snake/butt_right.png",
 };
+const loadedImages = {};
 
 /*
- *	prepare game
+ *  game
  */
-prepareGame();
-createBoard();
-placeApple();
-render();
-setTimeout(moveSnake, timeInterval);
+preloadImages(() => {
+    console.log("Alle Bilder erfolgreich geladen! Das Spiel kann starten.");
+    prepareGame();
+    createBoard();
+    placeApple();
+    render();
+    setTimeout(moveSnake, timeInterval);
+});
 
 function prepareGame() {
     for (let i = 0; i < fieldsize; i++) {
@@ -68,6 +72,46 @@ function prepareGame() {
         field[i].push(0);
         }
     }
+}
+
+// Funktion zum Vorabladen aller Bilder
+function preloadImages(callback) {
+  const allImageGroups = { imagesGame, imagesBody, imagesHead, imagesButt };
+  
+  let totalImages = 0;
+  let loadedCount = 0;
+  for (const groupName in allImageGroups) {
+    totalImages += Object.keys(allImageGroups[groupName]).length;
+  }
+
+  for (const groupName in allImageGroups) {
+    loadedImages[groupName] = {};
+    
+    for (const key in allImageGroups[groupName]) {
+      const path = allImageGroups[groupName][key];
+      const img = new Image();
+      
+      img.src = path;
+      
+      // Wenn das Bild erfolgreich geladen wurde
+      img.onload = () => {
+        loadedCount++;
+        if (loadedCount === totalImages && typeof callback === "function") {
+          callback();
+        }
+      };
+      
+      img.onerror = () => {
+        console.error(`Fehler beim Laden des Bildes: ${path}`);
+        loadedCount++;
+        if (loadedCount === totalImages && typeof callback === "function") {
+          callback();
+        }
+      };
+
+      loadedImages[groupName][key] = img;
+    }
+  }
 }
 
 /*
@@ -125,7 +169,7 @@ function createBoard() {
     for (let y = 0; y < fieldsize; y++) {
       const img = document.createElement("img");
 
-        img.src = imagesGame.empty;
+        img.src = loadedImages.imagesGame.empty.src;
         img.alt = `tile-${x}-${y}`;
         img.style.width = "50px";
         img.style.height = "50px";
@@ -181,12 +225,12 @@ function render() {
     // 1. Clear the entire board back to empty tiles first
     for (let x = 0; x < fieldsize; x++) {
         for (let y = 0; y < fieldsize; y++) {
-            field[x][y].src = imagesGame.empty;
+            field[x][y].src = loadedImages.imagesGame.empty.src;
         }
     }
 
     // 2. Draw the Apple
-    field[posApple.x][posApple.y].src = imagesGame.apple;
+    field[posApple.x][posApple.y].src = loadedImages.imagesGame.apple.src;
 
     posSnake.forEach((segment, index) => {
         if (
@@ -202,16 +246,16 @@ function render() {
         if (index === 0) {
             switch (moveDir) {
             case 0:
-                imgElement.src = imagesHead.down;
+                imgElement.src = loadedImages.imagesHead.down.src;
                 break;
             case 1:
-                imgElement.src = imagesHead.left;
+                imgElement.src = loadedImages.imagesHead.left.src;
                 break;
             case 2:
-                imgElement.src = imagesHead.up;
+                imgElement.src = loadedImages.imagesHead.up.src;
                 break;
             case 3:
-                imgElement.src = imagesHead.right;
+                imgElement.src = loadedImages.imagesHead.right.src;
                 break;
             }
         }
@@ -225,12 +269,12 @@ function render() {
             const dy = prevSegment.y - segment.y;
 
             if (dy === 1)
-            imgElement.src = imagesButt.right; // Body is to the right
+            imgElement.src = loadedImages.imagesButt.right.src; // Body is to the right
             else if (dy === -1)
-            imgElement.src = imagesButt.left; // Body is to the left
+            imgElement.src = loadedImages.imagesButt.left.src; // Body is to the left
             else if (dx === 1)
-            imgElement.src = imagesButt.down; // Body is below
-            else if (dx === -1) imgElement.src = imagesButt.up; // Body is above
+            imgElement.src = loadedImages.imagesButt.down.src; // Body is below
+            else if (dx === -1) imgElement.src = loadedImages.imagesButt.up.src; // Body is above
         }
 
         // --- BODY PARTS ---
@@ -239,27 +283,27 @@ function render() {
             const next = posSnake[index + 1]; // The piece closer to the tail
 
             if (prev.x === next.x) {
-                imgElement.src = imagesBody.left_right;
+                imgElement.src = loadedImages.imagesBody.left_right.src;
             } else if (prev.y === next.y) {
-                imgElement.src = imagesBody.up_down;
+                imgElement.src = loadedImages.imagesBody.up_down.src;
             } else {
                 if (
                     (prev.y < segment.y && next.x > segment.x) ||
                     (next.y < segment.y && prev.x > segment.x)
                 ) {
-                    imgElement.src = imagesBody.left_down;
+                    imgElement.src = loadedImages.imagesBody.left_down.src;
                 } else if (
                     (prev.y < segment.y && next.x < segment.x) ||
                     (next.y < segment.y && prev.x < segment.x)
                 ) {
-                    imgElement.src = imagesBody.up_left;
+                    imgElement.src = loadedImages.imagesBody.up_left.src;
                 } else if (
                     (prev.y > segment.y && next.x > segment.x) ||
                     (next.y > segment.y && prev.x > segment.x)
                 ) {
-                    imgElement.src = imagesBody.right_down;
+                    imgElement.src = loadedImages.imagesBody.right_down.src;
                 } else {
-                    imgElement.src = imagesBody.up_right;
+                    imgElement.src = loadedImages.imagesBody.up_right.src;
                 }
             }
         }

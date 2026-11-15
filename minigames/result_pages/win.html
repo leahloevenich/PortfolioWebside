@@ -15,12 +15,12 @@
     <div class="whole-box">
         <div class="heading">
             <div class="ws-heading">Leah Marie Lövenich</div>
-            <div class="banner" style="--steps: 15; --duration: 2s;">Congratulation!</div>
+            <div class="banner" style="--steps: 15; --duration: 2s;" data-de="Glückwunsch!" data-en="Congratulations!">Congratulations!</div>
         </div>
         <div class="box">
             <img src="../../images/minigames/result_pages/prize.png">
-            <div class="win-text">!YOU WON!</div>
-            <a href="../minigames.html" class="button-with-shadow">Play another game!</a>
+            <div class="win-text" data-de="!DU HAST GEWONNEN!" data-en="!YOU WON!">!YOU WON!</div>
+            <a href="../minigames.html" class="button-with-shadow" data-de="Spiel ein anderes Spiel!" data-en="Play another game!">Play another game!</a>
         </div>
     </div>
 
@@ -32,6 +32,12 @@
         <a href="../../impressum.html" class="home-link">IMPRESSUM</a>
         <span> | </span>
         <a href="../../datenschutz.html" class="home-link">DATENSCHUTZ</a>
+        <span> | </span>
+        <button onclick="changeLanguage('de')" class="lang-btn">DE</button>
+        <span> | </span>
+        <button onclick="changeLanguage('en')" class="lang-btn">EN</button>
     </div>
+
+    <script src="../../lang.js"></script>
 </body>
 </html> 
