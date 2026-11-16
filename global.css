@@ -11,14 +11,18 @@
     --dark-grey: #333333;
     --light-grey: grey;
 
-    --hue-1: 270;   /* purple */
-    --hue-2: 140;   /* green */
+    --hue-1: 270;   /* darkpurple */
+    --hue-2: 130;   /* green */
     --hue-3: 30;    /* orange */
-    --hue-4: 20;    /* peach */
+    --hue-4: 335;   /* peach */
     --hue-5: 210;   /* blue */
-    --hue-6: 100;   /* sage */
-    --hue-7: 50;    /* darkorange */
-    --hue-8: 320;   /* grape */
+    --hue-6: 160;   /* sage */
+    --hue-7: 20;    /* darkorange */
+    --hue-8: 300;   /* grape */
+    --hue-9: 170;   /* turquoise */
+    --hue-10: 70;   /* lime */
+    --hue-11: 190;  /* babyblue */
+
 
     --l-dark: 40%;
     --c-dark: 0.12;
@@ -114,9 +118,9 @@ body {
     bottom: 0;
     left: 0;
     padding: 5px;
-    color: white;
-    background-color: black;
-    border: 3px solid white;
+    color: black;
+    background-color: var(--main-red);
+    border: 3px solid black;
 
     display: flex;
     justify-content: center;
@@ -139,6 +143,7 @@ body {
         border: none;
         width: auto;
         height: 20px;
+        image-rendering: pixelated;
     }
 
     .image-button:hover {
@@ -153,7 +158,7 @@ body {
     a:visited,
     .lang-btn {
         text-decoration: none;
-        color: white;
+        color: black;
         font-size: 20px;
         font-family: inherit;
         background: none;

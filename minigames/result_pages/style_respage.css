@@ -11,6 +11,7 @@
         animation: breathing 5s ease-out infinite normal;
         color: #fff;
         -webkit-font-smoothing: antialiased;
+        image-rendering: pixelated;
     }
 }
 

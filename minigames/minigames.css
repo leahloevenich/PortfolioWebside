@@ -41,6 +41,7 @@
                 height: 100%;
                 width: auto;
                 margin-right: 0.4em;
+                image-rendering: pixelated;
             }
         }
 
@@ -59,6 +60,10 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
+
+            span {
+                text-align: start;
+            }
 
             .bottom {
                 margin-top: auto;
@@ -110,6 +115,4 @@
     .card:nth-child(8) {
         --hue: var(--hue-8);
     }
-
-
 }

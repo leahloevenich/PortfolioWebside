@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leah Lövenich</title>
+    <link rel="stylesheet" href="style_kontaktformular.css">
+    <link rel="stylesheet" href="../global.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="whole-box">
+        <div class="heading">
+            <div class="ws-heading">Leah Marie Lövenich</div>
+            <div class="banner" style="--steps: 12; --duration: 2s;" data-de="Kontaktformular" data-en="Contact Form">Contact Form</div>
+        </div>
+
+        <div class="box">
+            <div class="container">
+                <form action="senden.php" method="POST">
+                    <div>
+                        <label for="name" data-de="Name:" data-en="Name:">Name:</label><br>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="email" data-de="E-Mail-Adresse:" data-en="E-mail address:">E-mail adress:</label><br>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="nachricht" data-de="Deine Nachricht:" data-en="Your message:">Your message:</label><br>
+                        <textarea id="nachricht" name="nachricht" rows="5" required></textarea>
+                    </div>
+                    <br>
+                    <div class="checkbox-line">
+                        <input type="checkbox" id="datenschutz" name="datenschutz" required>
+                        <label for="datenschutz">
+                            <span data-de="Ich habe die" data-en="I have read the">I have read the</span>
+                            <a href="../datenschutz.html" target="_blank"
+                            data-de="Datenschutzerklärung" data-en="privacy policy">privacy policy</a>
+                            <span data-de="zur Kenntnis genommen." data-en="and acknowledge it.">and acknowledge it.</span>
+                        </label>
+                    </div>
+                    <br>
+
+
+                    <!-- Honeypot -->
+                    <div style="display: none;">
+                        <label for="website">Bitte dieses Feld leer lassen:</label>
+                        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                    </div>
+
+
+                    <button class="button-with-shadow" type="submit" data-de="Nachricht absenden!" data-en="Send message!">Send message!</button>
+                </form>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <div class="homemenu">
+        <a href="../index.html" class="image-button">
+            <img src="../images/home.png" alt="Button description">
+        </a>
+        <span> | </span>
+        <a href="../impressum.html" class="home-link">IMPRESSUM</a>
+        <span> | </span>
+        <a href="../datenschutz.html" class="home-link">DATENSCHUTZ</a>
+        <span> | </span>
+        <button onclick="changeLanguage('de')" class="lang-btn">DE</button>
+        <span> | </span>
+        <button onclick="changeLanguage('en')" class="lang-btn">EN</button>
+    </div>
+
+    <script src="mainPage.js"></script>
+    <script src="../lang.js"></script>
+</body>
+</html>
