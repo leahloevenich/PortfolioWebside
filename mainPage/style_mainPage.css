@@ -4,7 +4,7 @@
     padding: 0px 24px 34px 24px;
 
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 20px;
 
     .card {
@@ -249,6 +249,12 @@
         .subcard-data {
             width: 100%;
         }
+    }
+}
+
+@media (min-width: 768px) {
+    .whole-grid {
+        grid-template-columns: repeat(2, 1fr);   /* ab 768px: 2 Spalten */
     }
 }
 

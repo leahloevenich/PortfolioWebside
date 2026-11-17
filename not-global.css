@@ -179,31 +179,31 @@ li {
 
     .image-button {
         display: inline-block;
+        width: 20px;
+        height: 20px;
+        
+        background-image: url('images/home.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        
+        image-rendering: pixelated;
+        
+        /* Restliches Reset */
         border: none;
-        background: none;
         padding: 0;
         margin: 0;
         text-decoration: none;
-    }
 
-    .image-button img {
-        display: block;
-        border: none;
-        width: auto;
-        height: 20px;
-        image-rendering: pixelated;
+        transition: background-image 0.2s ease;
     }
 
     .image-button:hover {
-        opacity: 0.8;
+        background-image: url('images/home_hover.png');
     }
 
-    .image-button:active {
-        opacity: 0.6;
-    }
-
-    a:link,
-    a:visited,
+    a:not(.image-button):link,
+    a:not(.image-button):visited,
     .lang-btn {
         text-decoration: none;
         color: black;
@@ -213,11 +213,12 @@ li {
         border: none;
         padding: 0px 5px;
         margin: 0;
+        transition: color 0.2s ease;
     }
 
-    a:hover,
-    a:active,
+    a.home-link:hover,
+    a.home-link:active,
     .lang-btn:hover {
-        color: var(--main-darker-red);
+        color: white;
     }
 }
