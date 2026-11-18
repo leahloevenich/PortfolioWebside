@@ -1,0 +1,36 @@
+/* not_global_main.css */
+/* This file is for styles regarding most pages. */
+
+.box-with-shadow {
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.button-with-shadow {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px 20px;
+    gap: 10px;
+    background-color: var(--mid, var(--main-lighter-red));
+    box-shadow: 6px 6px 0px var(--light-grey);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+    hyphens: auto;
+    overflow-wrap: break-word;
+
+    font-family: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    border: none;
+}
+
+.button-with-shadow:hover {
+    transform: translate(6px, 6px);
+    box-shadow: 0px 0px 0px var(--light-grey);
+}

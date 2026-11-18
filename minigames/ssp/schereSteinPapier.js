@@ -9,9 +9,17 @@ const texts = {
     loss:    { de: "VERLOREN", en: "LOSS" },
     draw:    { de: "UNENTSCHIEDEN", en: "DRAW" }
 };
-
 const choices = ["scissor", "rock", "paper"];
+const images = {
+    draw: "../../images/minigames/ssp/draw.png",
+    win: "../../images/minigames/ssp/win.png",
+    loss: "../../images/minigames/ssp/loss.png"
+};
+const loadedImages = {};
 
+/*
+ *  LANGUAGE HANDLING
+ */
 function getLang() {
     const banner = document.querySelector(".banner");
     return banner && banner.textContent.trim() === banner.dataset.de ? "de" : "en";
@@ -24,10 +32,16 @@ function setText(id, key) {
     el.innerText = texts[key][getLang()] ?? texts[key].en;
 }
 
+/*
+ *  HANDLE INPUT
+ */
 function scissorClicked() { evalRound(0); }
 function rockClicked()    { evalRound(1); }
 function paperClicked()   { evalRound(2); }
 
+/*
+ *  EVALUATE ROUND
+ */
 function evalRound(choice) {
     const pcGuess = Math.floor(Math.random() * 3);
 
@@ -37,15 +51,60 @@ function evalRound(choice) {
     const result = (choice - pcGuess + 3) % 3;
 
     if (result === 0) {
-        setText("res", "draw");
+        document.getElementById("res").outerHTML = '<img src="../../images/minigames/ssp/draw.png" alt="Draw" id="res">';
     } else if (result === 1) {
-        setText("res", "win");
+        document.getElementById("res").outerHTML = '<img src="../../images/minigames/ssp/win.png" alt="Win" id="res">';
         playerPoints++;
     } else {
-        setText("res", "loss");
+        document.getElementById("res").outerHTML = '<img src="../../images/minigames/ssp/loss.png" alt="Loss" id="res">';
         computerPoints++;
     }
 
     document.getElementById("playerPoints").innerText = playerPoints;
     document.getElementById("computerPoints").innerText = computerPoints;
+}
+
+
+
+
+
+
+/*
+ *  PRELOAD IMAGES
+ */
+
+// call function
+preloadImages(() => {
+    console.log("Alle Bilder erfolgreich geladen! Das Spiel kann starten.");
+});
+
+// define function
+function preloadImages(callback) {
+    let totalImages = Object.keys(images).length;
+    let loadedCount = 0;
+
+    for (const key in images) {
+        const path = images[key];
+        const img = new Image();
+        
+        img.src = path;
+        
+        // Wenn das Bild erfolgreich geladen wurde
+        img.onload = () => {
+            loadedCount++;
+            if (loadedCount === totalImages && typeof callback === "function") {
+            callback();
+            }
+        };
+        
+        img.onerror = () => {
+            console.error(`Fehler beim Laden des Bildes: ${path}`);
+            loadedCount++;
+            if (loadedCount === totalImages && typeof callback === "function") {
+            callback();
+            }
+        };
+
+        loadedImages[key] = img;
+    }
 }

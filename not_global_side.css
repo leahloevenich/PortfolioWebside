@@ -1,0 +1,29 @@
+/* not_global_side.css */
+/* This file is for styles regarding the impressum and datenschutz. */
+
+.box-with-shadow {
+    flex-direction: column;
+    width: 100%;
+}
+
+.box-with-shadow h2 {
+    margin-bottom: 8px;
+}
+
+.box-with-shadow p {
+    margin: 0;
+}
+
+a:not(.button-link):not(.image-button):link,
+a:not(.button-link):not(.image-button):visited {
+    width: 100%;
+    color: var(--darker-red);
+    padding-left: 5px;
+    text-align: left;
+    text-decoration: underline;
+}
+
+a:hover,
+a:active {
+    color: var(--main-red);
+}

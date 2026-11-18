@@ -27,19 +27,10 @@ const board = document.getElementById("board");
 
 const images = {
 	free: "../../images/minigames/minesweeper/pressed.png",
-	questionmark: "../../images/minigames/minesweeper/notpressed2.png",
+	questionmark: "../../images/minigames/minesweeper/notpressed.png",
 	bomb: "../../images/minigames/minesweeper/bomb.png",
 };
 const loadedImages = {};
-
-
-
-
-
-
-
-
-
 
 
 
@@ -76,16 +67,6 @@ function preloadImages(callback) {
 		loadedImages[key] = img;
     }
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -165,16 +146,71 @@ function createButtons() {
 			img.classList.add("board-image");
 			button.appendChild(img);
 
-			// Left-click handler
+			let pressTimer = null;
+			let lastPressTime = 0;
+			let longPressed = false; 
+			const longPressDuration = 500;
+			const cooldownDuration = 300;
+			const contextMenuGuard = 800;
+
 			button.addEventListener("click", (e) => {
+				if (longPressed) {
+					longPressed = false;
+					return;
+				}
 				handleClick(x, y, button);
 			});
 
-			// Right-click handler
 			button.addEventListener("contextmenu", (e) => {
-				e.preventDefault(); // Prevents the browser's default right-click menu from showing
+				e.preventDefault();
+
+				if (Date.now() - lastPressTime < contextMenuGuard) {
+					return;
+				}
+
+				if (pressTimer) {
+					clearTimeout(pressTimer);
+					pressTimer = null;
+					longPressed = true;
+					lastPressTime = Date.now();
+				}
+
 				handleRightClick(x, y, button);
 			});
+
+			// --- Long-Press Handler with Cooldown Pause ---
+			const startPress = (e) => {
+				if (e.button === 2) return; 
+
+				// Check if we are still within the cooldown pause period
+				const now = Date.now();
+				if (now - lastPressTime < cooldownDuration) {
+					return;
+				}
+				longPressed = false;
+
+				pressTimer = setTimeout(() => {
+					handleRightClick(x, y, button);
+					lastPressTime = Date.now();
+					longPressed = true;
+					pressTimer = null;
+				}, longPressDuration);
+			};
+
+			const cancelPress = () => {
+				if (pressTimer) {
+					clearTimeout(pressTimer);
+					pressTimer = null;
+				}
+			};
+
+			button.addEventListener("mousedown", startPress);
+			button.addEventListener("touchstart", startPress, { passive: true });
+
+			button.addEventListener("mouseup", cancelPress);
+			button.addEventListener("mouseleave", cancelPress);
+			button.addEventListener("touchend", cancelPress);
+			button.addEventListener("touchmove", cancelPress);
 
 			board.appendChild(button);
 		}
@@ -294,9 +330,15 @@ function reloadField() {
 }
 
 function checkIfDone() {
-	const unfinished = gamefield.some((row) => row.includes(10));
-
-	if (!unfinished) {
-		window.location.href = "../result_pages/win.html";
+	for (let x = 0; x < fieldsize; x++) {
+		for (let y = 0; y < fieldsize; y++) {
+			const isBomb = field[x][y] === 9;
+			const state = gamefield[x][y];
+			if (!isBomb && (state === 10 || state === 9)) {
+				return;
+			}
+		}
 	}
+
+	window.location.href = "../result_pages/win.html";
 }

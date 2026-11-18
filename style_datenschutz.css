@@ -4,18 +4,25 @@
     padding: 0px 24px 34px 24px;
     gap: 20px;
     display: flex;
-        flex-direction: column;
+    flex-direction: column;
 
     .box-with-shadow {
         box-sizing: border-box;
         height: max-content;
-        padding: 0px 10px;
+        padding: 20px 10px;
         border: 3px solid;
         box-shadow: 6px 6px 0px grey;
+        align-items: start;
+        justify-content: start;
 
         h2 {
             text-shadow: 3px 3px 0px #CF6563;
             text-transform: uppercase;
+            margin: 0px;
+        }
+
+        h3 {
+            margin: 0px;
         }
     }
 
@@ -32,20 +39,4 @@
     a:active {
         color: #C3423F;
     }
-}
-
-ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-li {
-    background-image: url("images/two_arrows.png");
-    background-repeat: no-repeat;
-    background-position: left 2px;
-    background-size: 16px 16px;
-
-    padding-left: 24px;
-    margin-bottom: 8px;
 }
