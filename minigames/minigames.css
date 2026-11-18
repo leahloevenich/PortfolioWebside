@@ -4,7 +4,7 @@
     padding: 0px 24px 34px 24px;
 
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 20px;
 
     .card {
@@ -68,17 +68,26 @@
             .bottom {
                 margin-top: auto;
                 width: 100%;
+                container-type: inline-size;
+                container-name: bottom;
+
+                .two-buttons,
+                .three-buttons {
+                    display: grid;
+                    grid-template-columns: 1fr;   /* Standard: untereinander */
+                    gap: 10px;
+                }
 
                 .two-buttons {
-                    display: grid;
-                    grid-template-columns: repeat(2, 1fr);
-                    gap: 20px;
+                    @container bottom (min-width: 350px) {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
                 }
 
                 .three-buttons {
-                    display: grid;
-                    grid-template-columns: repeat(3, 1fr);
-                    gap: 20px;
+                    @container bottom (min-width: 350px) {
+                        grid-template-columns: repeat(3, 1fr);
+                    }
                 }
             }
         }
@@ -114,5 +123,11 @@
 
     .card:nth-child(8) {
         --hue: var(--hue-8);
+    }
+}
+
+@media (min-width: 768px) {
+    .whole-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }

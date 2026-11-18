@@ -66,15 +66,21 @@ body {
 
 .heading {
     width: 100%;
-    height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
+    padding: 30px 0px;
 
     .ws-heading {
-        font-size: xx-large;
+        font-size: 30px;
+    }
+
+    @media (max-width: 768px) {
+        .ws-heading {
+            font-size: 20px;
+        }
     }
 
     .banner {
@@ -94,6 +100,26 @@ body {
         animation:
             typing var(--duration) steps(var(--steps), end) forwards,
             blinking 1s steps(1, end) infinite;
+    }
+
+    @media (max-width: 950px) {
+        .banner {
+            font-size: 32px;
+        }
+    }
+
+    @media (max-width: 800px) {
+        .banner {
+            font-size: 24px;
+            text-shadow: 2px 2px 0px #CF6563;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .banner {
+            font-size: 16px;
+            text-shadow: 1px 1px 0px #CF6563;
+        }
     }
 }
 
@@ -124,6 +150,7 @@ body {
 
     display: flex;
     justify-content: center;
+    align-items: center;
 
     span {
         font-size: 20px;
@@ -131,8 +158,9 @@ body {
 
     .image-button {
         display: inline-block;
-        width: 20px;
-        height: 20px;
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
         
         background-image: url('images/home.png');
         background-size: contain;
@@ -176,7 +204,6 @@ body {
 }
 
 .box-with-shadow {
-    height: max-content;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -187,6 +214,8 @@ body {
     border-color: var(--dark, var(--main-red));
     background-color: var(--mid, var(--main-red));
     box-shadow: 6px 6px 0px var(--light-grey);
+    hyphens: auto;
+    overflow-wrap: break-word;
     transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
@@ -196,11 +225,11 @@ body {
 }
 
 .button-with-shadow {
-    height: max-content;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     padding: 10px 20px;
     gap: 10px;
     background-color: var(--mid, var(--main-lighter-red));
@@ -209,6 +238,8 @@ body {
     font-size: 20px;
     text-decoration: none;
     color: black;
+    hyphens: auto;
+    overflow-wrap: break-word;
 
     font-family: inherit;
     font-weight: inherit;

@@ -58,7 +58,7 @@ body {
 
 .heading {
     width: 100%;
-    height: 200px;
+    min-height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,7 +69,7 @@ body {
         font-size: xx-large;
     }
 
-    .banner {
+        .banner {
         width: min-content;
         font-family: 'Press Start 2P', cursive;
         font-size: 40px;
@@ -86,6 +86,26 @@ body {
         animation:
             typing var(--duration) steps(var(--steps), end) forwards,
             blinking 1s steps(1, end) infinite;
+    }
+
+    @media (max-width: 950px) {
+        .banner {
+            font-size: 32px;
+        }
+    }
+
+    @media (max-width: 800px) {
+        .banner {
+            font-size: 24px;
+            text-shadow: 2px 2px 0px #CF6563;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .banner {
+            font-size: 16px;
+            text-shadow: 1px 1px 0px #CF6563;
+        }
     }
 }
 
@@ -110,7 +130,7 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 30px;
+    padding: clamp(12px, 4vw, 30px);
     gap: 10px;
     border: 3px solid var(--main-darker-red);
     background-color: var(--main-lighter-red);
@@ -125,8 +145,8 @@ body {
     margin: 0;
 }
 
-a:link,
-a:visited {
+a:not(.button-link):not(.image-button):link,
+a:not(.button-link):not(.image-button):visited {
     width: 100%;
     color: #4E1918;
     padding-left: 5px;
@@ -172,6 +192,7 @@ li {
 
     display: flex;
     justify-content: center;
+    align-items: center;
 
     span {
         font-size: 20px;
@@ -179,8 +200,9 @@ li {
 
     .image-button {
         display: inline-block;
-        width: 20px;
-        height: 20px;
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
         
         background-image: url('images/home.png');
         background-size: contain;
